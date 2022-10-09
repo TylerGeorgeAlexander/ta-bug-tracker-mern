@@ -58,7 +58,6 @@ const Navbar = () => {
     });
   };
 
-
   // eslint-disable-next-line no-unused-vars
   const refetchHandler = () => {
     // set details to undefined so that spinner will be displayed and
@@ -70,7 +69,6 @@ const Navbar = () => {
 
   return (
     <>
-      {" "}
       {/* <nav>
     <ul>
       <li>
@@ -84,10 +82,25 @@ const Navbar = () => {
       </li>
     </ul>
   </nav> */}
-      <nav>
-        <div className="navbar bg-base-100">
+      <nav className="m-4">
+        <div className="navbar bg-base-100 shadow-lg rounded-lg">
           <div className="flex-1">
-            <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+            <Link className="btn btn-ghost normal-case text-xl" to="/test">
+              testPage
+            </Link>
+            <div className="text-sm breadcrumbs">
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/issues">Issues</Link>
+                </li>
+                <li>
+                  <Link to="/issues/add">Add Issue</Link>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="flex-none gap-2">
             <div className="form-control">
@@ -100,7 +113,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" alt="TODO"/>
+                  <img src="https://placeimg.com/80/80/people" alt="TODO" />
                 </div>
               </label>
               <ul
@@ -118,13 +131,13 @@ const Navbar = () => {
                 </li>
                 <li>
                   <button
-                    className="btn"
+                    // className="btn"
                     text="Logout"
                     onClick={logoutHandler}
                     minimal
                     intent="primary"
                   >
-                    Button
+                    Logout
                   </button>
                 </li>
               </ul>

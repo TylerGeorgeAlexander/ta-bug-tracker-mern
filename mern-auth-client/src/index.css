@@ -6,7 +6,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.login-body {
+.login-body, .welcome-body {
   margin: 0 auto;
   max-width: 400px;
 }

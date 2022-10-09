@@ -5,6 +5,9 @@ import Loader from "./components/Loader";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Welcome from "./components/Welcome";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NoPage from "./pages/NoPage";
+import Layout from "./pages/Layout";
 
 function App() {
   const [currentTab, setCurrentTab] = useState("login");
@@ -61,7 +64,16 @@ function App() {
       </Tabs>
     </Card>
   ) : userContext.token ? (
-    <Welcome />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Welcome />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   ) : (
     <Loader />
   );

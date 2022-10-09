@@ -14,9 +14,11 @@ require("./utils/connectdb");
 
 require("./strategies/JwtStrategy");
 require("./strategies/LocalStrategy");
-require("./authenticate");
+require("./middleware/authenticate");
 
+// ROUTERS IMPORT
 const userRouter = require("./routes/userRoutes");
+const bugRouter = require('./routes/bugRoutes')
 
 const app = express();
 
@@ -62,7 +64,9 @@ app.use(cors(corsOptions));
 
 app.use(passport.initialize());
 
+// ATTACH OR LISTEN FOR THE ROUTERS
 app.use("/users", userRouter);
+app.use("/bug", bugRouter);
 
 app.get("/", function (req, res) {
   res.send({ status: "success" });

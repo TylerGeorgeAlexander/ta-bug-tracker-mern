@@ -9,7 +9,7 @@ const {
   COOKIE_OPTIONS,
   getRefreshToken,
   verifyUser,
-} = require("../authenticate");
+} = require("../middleware/authenticate");
 
 // ME - Endpoint to fetch user details
 router.get("/me", verifyUser, (req, res, next) => {

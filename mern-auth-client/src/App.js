@@ -8,6 +8,7 @@ import Welcome from "./components/Welcome";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
+import Test from "./pages/Test";
 
 function App() {
   const [currentTab, setCurrentTab] = useState("login");
@@ -70,6 +71,7 @@ function App() {
           <Route index element={<Welcome />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/test" element={<Test />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

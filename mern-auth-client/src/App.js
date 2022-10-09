@@ -57,13 +57,15 @@ function App() {
   }, [syncLogout]);
 
   return userContext.token === null ? (
-    <Card elevation="1">
-      <Tabs id="Tabs" onChange={setCurrentTab} selectedTabId={currentTab}>
-        <Tab id="login" title="Login" panel={<Login />} />
-        <Tab id="register" title="Register" panel={<Register />} />
-        <Tabs.Expander />
-      </Tabs>
-    </Card>
+    <div className="login-body">
+      <Card elevation="1">
+        <Tabs id="Tabs" onChange={setCurrentTab} selectedTabId={currentTab}>
+          <Tab id="login" title="Login" panel={<Login />} />
+          <Tab id="register" title="Register" panel={<Register />} />
+          <Tabs.Expander />
+        </Tabs>
+      </Card>
+    </div>
   ) : userContext.token ? (
     <BrowserRouter>
       <Routes>

@@ -34,6 +34,7 @@ app.use(
     proxy: true,
     resave: true,
     saveUninitialized: true,
+    cookie: { sameSite: "strict" },
   })
 );
 app.use(bodyParser.json());

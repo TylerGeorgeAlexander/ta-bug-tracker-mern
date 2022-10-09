@@ -134,7 +134,6 @@ const Navbar = () => {
                     // className="btn"
                     text="Logout"
                     onClick={logoutHandler}
-                    minimal
                     intent="primary"
                   >
                     Logout

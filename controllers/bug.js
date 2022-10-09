@@ -14,7 +14,7 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const bugs = await Bug.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { bugs: bugs, user: req.user });
+      res.send({ bugs: bugs, user: req.user });
     } catch (err) {
       console.log(err);
     }

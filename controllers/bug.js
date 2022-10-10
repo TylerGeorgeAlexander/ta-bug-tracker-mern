@@ -1,4 +1,4 @@
-// const cloudinary = require("../middleware/cloudinary");
+const cloudinary = require("../middleware/cloudinary");
 const Bug = require("../models/Bug");
 const Comment = require("../models/Comment");
 

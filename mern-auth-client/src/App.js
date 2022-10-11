@@ -9,7 +9,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Test from "./pages/Test";
-import Bugs  from "./pages/Bugs";
+import Bugs from "./pages/Bugs";
+import BugForm from "./components/BugForm";
 
 function App() {
   const [currentTab, setCurrentTab] = useState("login");
@@ -76,6 +77,11 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/test" element={<Test />} />
           <Route exact path="/Bugs" element={<Bugs />} />
+          <Route
+            exact
+            path="/Bugs/add"
+            element={<BugForm userContext={userContext} />}
+          />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

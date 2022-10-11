@@ -6,7 +6,7 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const bugs = await Bug.find({ user: req.user.id });
-      res.render("profile.ejs", { bugs: bugs, user: req.user });
+      res.send({ bugs: bugs, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -24,7 +24,7 @@ module.exports = {
     try {
       const bug = await Bug.findById(req.params.id);
       const comments = await Comment.find({ bug: req.params.id });
-      res.render("bug.ejs", { bug: bug, user: req.user, comments: comments });
+      res.send({ bug: bug, user: req.user, comments: comments });
     } catch (err) {
       console.log(err);
     }
@@ -47,7 +47,7 @@ module.exports = {
         //openedDate is defaulted in schema
       });
       console.log("Bug has been added!");
-      res.redirect("/profile");
+      res.status(200).send("Bug has been added");
     } catch (err) {
       console.log(err);
     }

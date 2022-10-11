@@ -94,10 +94,16 @@ const Navbar = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/issues">Issues</Link>
+                  <Link to="/Bugs">Bugs</Link>
                 </li>
                 <li>
-                  <Link to="/issues/add">Add Issue</Link>
+                  <Link to="/Bugs/add">Add Bug</Link>
+                </li>
+                <li>
+                  <p className="text-lg text-center">
+                    Placeholder for UserContext.image ={" "}
+                    {JSON.stringify(userContext.image)}
+                  </p>
                 </li>
               </ul>
             </div>
@@ -113,7 +119,10 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" alt="TODO" />
+                  <img
+                    src={userContext.image ? userContext.image : "./favicon.ico"}
+                    alt="TODO"
+                  />
                 </div>
               </label>
               <ul

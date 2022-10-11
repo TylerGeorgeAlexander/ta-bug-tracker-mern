@@ -27,10 +27,14 @@ const BugForm = ({ userContext }) => {
     e.preventDefault();
     console.log(e);
 
-    // Take the _id from userContext prop
-    setBodyData({ ...bodyData, id: userContext.details._id });
-
     // Create bodyData object
+    setBodyData({
+      ...bodyData,
+      id: userContext.details._id,
+      name,
+      description: desc,
+      priority,
+    });
 
     // var name = document.getElementById("testName").value;
     // formData.append("name", name);

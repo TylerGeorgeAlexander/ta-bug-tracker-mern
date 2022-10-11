@@ -14,7 +14,7 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       // const bugs = await Bug.find().sort({ createdAt: "desc" }).lean();
-      console.log("getFeed")
+      console.log("getFeed");
       res.send({ bugs: "test", user: req.user });
     } catch (err) {
       console.log(err);
@@ -37,8 +37,10 @@ module.exports = {
         result = await cloudinary.uploader.upload(req.file.path);
       }
 
+      console.log(JSON.stringify(req.body));
+
       await Bug.create({
-        user: req.user.id,
+        user: req.body.id,
         name: req.body.name,
         description: req.body.description,
         image: result ? result.secure_url : "/imgs/favicon.ico",

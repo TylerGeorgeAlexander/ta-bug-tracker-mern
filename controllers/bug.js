@@ -13,9 +13,9 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      // const bugs = await Bug.find().sort({ createdAt: "desc" }).lean();
+      const bugs = await Bug.find().sort({ createdAt: "desc" }).lean();
       console.log("getFeed");
-      res.send({ bugs: "test", user: req.user });
+      res.send({ bugs: bugs });
     } catch (err) {
       console.log(err);
     }
@@ -43,8 +43,8 @@ module.exports = {
         user: req.body.id,
         name: req.body.name,
         description: req.body.description,
-        image: result ? result.secure_url : "/imgs/favicon.ico",
-        cloudinaryId: result ? result.public_id : "/imgs/favicon.ico",
+        image: result ? result.secure_url : null,
+        cloudinaryId: result ? result.public_id : null,
         priority: req.body.priority,
         //openedDate is defaulted in schema
       });

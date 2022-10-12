@@ -76,7 +76,11 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/test" element={<Test />} />
-          <Route exact path="/Bugs" element={<Bugs />} />
+          <Route
+            exact
+            path="/Bugs"
+            element={<Bugs userContext={userContext} />}
+          />
           <Route
             exact
             path="/Bugs/add"

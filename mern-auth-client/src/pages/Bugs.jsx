@@ -16,6 +16,7 @@ const Bugs = ({ userContext }) => {
     const { data } = await axios.get(UPLOAD_ENDPOINT, config);
     setData(data);
   };
+
   useEffect(() => {
     getData();
   }, []);
@@ -87,8 +88,8 @@ const Bugs = ({ userContext }) => {
                   <tr>
                     <th></th>
                     <th>Name</th>
-                    <th>Job</th>
-                    <th>Favorite Color</th>
+                    <th>Description</th>
+                    <th>Priority</th>
                     <th></th>
                   </tr>
                 </tfoot>

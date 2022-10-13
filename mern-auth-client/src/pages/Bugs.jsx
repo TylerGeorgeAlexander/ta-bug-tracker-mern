@@ -25,6 +25,20 @@ const Bugs = ({ userContext }) => {
     []
   );
 
+  // Delete Function
+  const deleteBug = (id) => {
+    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/deleteBug/${id}`;
+
+    return axios
+      .delete(UPLOAD_ENDPOINT)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       {/* data structure stringified
@@ -44,6 +58,7 @@ const Bugs = ({ userContext }) => {
               <th>Description</th>
               <th>Priority</th>
               <th>Attachments</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -95,6 +110,15 @@ const Bugs = ({ userContext }) => {
                     <th>
                       <button className="btn btn-ghost btn-xs">details</button>
                     </th>
+
+                    <th>
+                      <button
+                        onClick={() => deleteBug(bug._id)}
+                        className="btn btn-ghost btn-xs"
+                      >
+                        delete
+                      </button>
+                    </th>
                   </tr>
                 );
               })}
@@ -108,6 +132,7 @@ const Bugs = ({ userContext }) => {
               <th>Description</th>
               <th>Priority</th>
               <th>Attachments</th>
+              <th></th>
               <th></th>
             </tr>
           </tfoot>

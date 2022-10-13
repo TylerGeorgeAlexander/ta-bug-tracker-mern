@@ -44,6 +44,7 @@ const BugForm = ({ userContext }) => {
 
     // var name = document.getElementById("testName").value;
     formData.append("id", userContext.details._id);
+    formData.append("username", userContext.details.username);
     formData.append("name", bodyData.name);
     formData.append("description", bodyData.description);
     formData.append("priority", bodyData.priority);

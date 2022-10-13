@@ -4,23 +4,8 @@ import DeleteModal from "../components/DeleteModal";
 
 const Bugs = ({ userContext }) => {
   const [data, setData] = useState([]);
-  const [usersData, setUsersData] = useState([]);
 
   const getData = async () => {
-    const UPLOAD_ENDPOINT = "http://localhost:8081/bug/getFeed";
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userContext.token}`,
-      },
-    };
-
-    const { data } = await axios.get(UPLOAD_ENDPOINT, config);
-    setData(data);
-  };
-
-  const getUserData = async () => {
     const UPLOAD_ENDPOINT = "http://localhost:8081/bug/getFeed";
 
     const config = {
@@ -37,7 +22,6 @@ const Bugs = ({ userContext }) => {
   useEffect(
     () => {
       getData();
-      getUserData();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -133,7 +117,13 @@ const Bugs = ({ userContext }) => {
                         <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
-                              src={usersData.profilePicture || "favicon.ico"}
+                              src={
+                                data.users?.map((user) => {
+                                  if (user.username === bug.createdBy)
+                                    return user.profilePicture;
+                                  return null;
+                                }) || "favicon.ico"
+                              }
                               alt="Avatar Tailwind CSS Component"
                             />
                           </div>

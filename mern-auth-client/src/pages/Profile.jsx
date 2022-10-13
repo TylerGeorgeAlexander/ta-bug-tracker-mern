@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ImageUpload from "../components/ImageUpload";
 
 const Profile = ({ userContext }) => {
   const [bodyData, setBodyData] = useState({});
@@ -61,9 +62,10 @@ const Profile = ({ userContext }) => {
           <input type="file" name="file" id="file" />
         </label>
         <button className="btn btn-primary" type="submit">
-          Submit
+          Save
         </button>
       </form>
+      <ImageUpload />
     </>
   );
 };

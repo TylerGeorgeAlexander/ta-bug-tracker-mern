@@ -39,6 +39,9 @@ const Profile = ({ userContext }) => {
       .then(function (response) {
         //handle success
         console.log(response);
+        // Refresh page
+        // TODO: Optimize
+        window.location.reload(false);
       })
       .catch(function (response) {
         //handle error

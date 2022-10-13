@@ -13,18 +13,18 @@ const BugForm = ({ userContext }) => {
   // const [priority, setPriority] = useState("");
   const [filePath, setFilePath] = useState("");
 
-  const clickTest = (e) => {
-    // setBodyData({
-    //   ...bodyData,
-    //   id: userContext.details._id,
-    //   name,
-    //   description: desc,
-    //   priority,
-    // });
-    // setBodyData( { id: userContext.details._id });
-    console.log("file path: ", filePath);
-    return console.log(JSON.stringify(bodyData));
-  };
+  // const clickTest = (e) => {
+  //   // setBodyData({
+  //   //   ...bodyData,
+  //   //   id: userContext.details._id,
+  //   //   name,
+  //   //   description: desc,
+  //   //   priority,
+  //   // });
+  //   // setBodyData( { id: userContext.details._id });
+  //   console.log("file path: ", filePath);
+  //   return console.log(JSON.stringify(bodyData));
+  // };
 
   const submitForm = async (e) => {
     const UPLOAD_ENDPOINT = "http://localhost:8081/bug/createBug";

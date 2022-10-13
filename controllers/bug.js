@@ -75,13 +75,15 @@ module.exports = {
       // Find bug by id
       let bug = await Bug.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(bug.cloudinaryId);
+      if (bug.cloudinaryId) {
+        await cloudinary.uploader.destroy(bug.cloudinaryId);
+      }
       // Delete bug from db
-      await Bug.remove({ _id: req.params.id });
-      console.log("Deleted Bug");
-      res.redirect("/profile");
+      await Bug.deleteOne({ _id: req.params.id });
+      // console.log("Deleted Bug");
+      res.status(200).send("Bug has been hard deleted.");
     } catch (err) {
-      res.redirect("/profile");
+      console.log(err);
     }
   },
 };

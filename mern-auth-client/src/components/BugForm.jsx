@@ -112,6 +112,7 @@ const BugForm = ({ userContext }) => {
             id="name"
             name="name"
             type="text"
+            required
             value={bodyData.name}
             onChange={(e) => setBodyData({ ...bodyData, name: e.target.value })}
             className="input input-bordered w-full max-w-xs"
@@ -127,6 +128,7 @@ const BugForm = ({ userContext }) => {
             id="desc"
             name="desc"
             type="text"
+            required
             value={bodyData.description}
             onChange={(e) =>
               setBodyData({ ...bodyData, description: e.target.value })
@@ -144,6 +146,7 @@ const BugForm = ({ userContext }) => {
             id="priority"
             name="priority"
             value={bodyData.priority}
+            required
             onChange={(e) =>
               setBodyData({ ...bodyData, priority: e.target.value })
             }

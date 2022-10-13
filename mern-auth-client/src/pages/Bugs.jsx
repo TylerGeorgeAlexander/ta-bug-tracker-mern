@@ -17,37 +17,42 @@ const Bugs = ({ userContext }) => {
     setData(data);
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  useEffect(
+    () => {
+      getData();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   return (
     <>
       {/* data structure stringified
       <h2>Bugs</h2>
       <div>{JSON.stringify(data)}</div> */}
-      {data &&
-        data.bugs?.map((bug) => {
-          return (
-            <div key={`${bug.id} div`} className="overflow-x-auto w-full">
-              <table key={`${bug.id} table`} className="table w-full">
-                {/* <!-- head --> */}
-                <thead>
-                  <tr>
-                    <th>
-                      <label>
-                        <input type="checkbox" className="checkbox" />
-                      </label>
-                    </th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Priority</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* <!-- row 1 --> */}
-                  <tr>
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full">
+          {/* <!-- head --> */}
+          <thead>
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th></th>
+            </tr>
+          </thead>
+          {/* tbody begin */}
+          <tbody>
+            {/* <!-- row 1 --> */}
+            {data &&
+              data.bugs?.map((bug) => {
+                return (
+                  <tr key={`${bug._id} tr`}>
                     <th>
                       <label>
                         <input type="checkbox" className="checkbox" />
@@ -83,21 +88,22 @@ const Bugs = ({ userContext }) => {
                       <button className="btn btn-ghost btn-xs">details</button>
                     </th>
                   </tr>
-                </tbody>
-                {/* <!-- foot --> */}
-                <tfoot>
-                  <tr>
-                    <th></th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Priority</th>
-                    <th></th>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-          );
-        })}
+                );
+              })}
+            {/* tbody end */}
+          </tbody>
+          {/* <!-- foot --> */}
+          <tfoot>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </>
   );
 };

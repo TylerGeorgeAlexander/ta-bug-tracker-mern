@@ -6,7 +6,7 @@ const BugForm = ({ userContext }) => {
   const [bodyData, setBodyData] = useState({
     name: "",
     description: "",
-    priority: "",
+    priority: "low",
   });
   // const [name, setName] = useState("");
   // const [desc, setDesc] = useState("");
@@ -100,16 +100,22 @@ const BugForm = ({ userContext }) => {
         <label htmlFor="priority" className="label-text">
           Priority:{" "}
         </label>
-        <input
+
+        <select
           id="priority"
           name="priority"
-          type="text"
           value={bodyData.priority}
           onChange={(e) =>
             setBodyData({ ...bodyData, priority: e.target.value })
           }
-          className="input input-bordered w-full max-w-xs"
-        />
+          className="select select-bordered w-full max-w-xs"
+        >
+          <option disabled>Priority Level:</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+          <option value="immediately">Immediately</option>
+        </select>
 
         <input
           type="file"

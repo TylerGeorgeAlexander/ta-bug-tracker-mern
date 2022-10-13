@@ -57,11 +57,11 @@ const Bugs = ({ userContext }) => {
                   <input type="checkbox" className="checkbox" />
                 </label>
               </th>
-              <th>Bug Name</th>
-              <th>Description</th>
-              <th>Priority</th>
-              <th>Attachments</th>
-              <th>Created By</th>
+              <th className="text-center">Bug Name</th>
+              <th className="text-center">Description</th>
+              <th className="text-center">Priority</th>
+              <th className="text-center">Attachments</th>
+              <th className="text-center">Created By</th>
               <th></th>
               <th></th>
             </tr>
@@ -82,29 +82,31 @@ const Bugs = ({ userContext }) => {
                       <div className="flex items-center space-x-3 whitespace-normal">
                         <div>
                           <div className="font-bold">{bug.name}</div>
-                          <div className="text-sm opacity-50">
+                          <div className="text-sm opacity-50 text-center">
                             {bug.app || "Default Application"}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div className="flex items-center space-x-3 whitespace-normal">
+                      <div className="flex items-center space-x-3 whitespace-normal justify-center">
                         {bug.description}
                       </div>
                       <br />
                       <span className="badge badge-ghost badge-sm">
-                        {bug.user?.role || "Desktop Support Technician"}
+                        {bug.user?.role || "Software Engineer I"}
                       </span>
                     </td>
-                    <td>{bug.priority.toUpperCase() || "HIGH"}</td>
+                    <td className="text-center">
+                      {bug.priority.toUpperCase() || "HIGH"}
+                    </td>
                     <td>
-                      <div className="flex items-center space-x-3">
+                      <div className="flex items-center space-x-3 justify-center">
                         <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
                               src={bug.image || "favicon.ico"}
-                              alt="Avatar Tailwind CSS Component"
+                              alt="Bug's Avatar"
                             />
                           </div>
                         </div>
@@ -112,30 +114,24 @@ const Bugs = ({ userContext }) => {
                     </td>
 
                     <td>
-                      {bug.createdBy}{" "}
-                      <div className="flex items-center space-x-3">
+                      <div className="flex items-center space-x-3 justify-center">
+                        <span>{bug.createdBy}</span>
                         <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
-                              src={
-                                data.users?.map((user) => {
-                                  if (user.username === bug.createdBy)
-                                    return user.profilePicture;
-                                  return null;
-                                }) || "favicon.ico"
-                              }
-                              alt="Avatar Tailwind CSS Component"
+                              src={bug.user.profilePicture || "favicon.ico"}
+                              alt="User's Avatar"
                             />
                           </div>
                         </div>
                       </div>
                     </td>
 
-                    <td>
+                    <td className="text-center">
                       <button className="btn btn-ghost btn-xs">details</button>
                     </td>
 
-                    <td>
+                    <td className="text-center">
                       <DeleteModal id={bug._id} deleteBug={deleteBug} />
                     </td>
                   </tr>
@@ -147,11 +143,11 @@ const Bugs = ({ userContext }) => {
           <tfoot>
             <tr>
               <th></th>
-              <th>Bug Name</th>
-              <th>Description</th>
-              <th>Priority</th>
-              <th>Attachments</th>
-              <th>Created By</th>
+              <th className="text-center">Bug Name</th>
+              <th className="text-center">Description</th>
+              <th className="text-center">Priority</th>
+              <th className="text-center">Attachments</th>
+              <th className="text-center">Created By</th>
               <th></th>
               <th></th>
             </tr>

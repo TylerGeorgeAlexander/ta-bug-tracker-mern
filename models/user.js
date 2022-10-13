@@ -30,6 +30,12 @@ const User = new Schema({
   refreshToken: {
     type: [Session],
   },
+  profilePicture: {
+    type: String,
+  },
+  cloudinaryId: {
+    type: String,
+  },
 });
 
 //Remove refreshToken from the response

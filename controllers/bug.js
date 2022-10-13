@@ -64,6 +64,9 @@ module.exports = {
       res.status(200).send("Bug has been added");
     } catch (err) {
       console.log(err);
+      res.status(400).send({
+        message: "This is an error!",
+      });
     }
   },
   likeBug: async (req, res) => {

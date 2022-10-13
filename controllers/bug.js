@@ -14,10 +14,17 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const bugs = await Bug.find().sort({ createdAt: "desc" }).lean();
-      const users = await User.find();
+      const bugs = await Bug.find()
+        .populate("user", "profilePicture")
+        // .exec(function (err, bugs) {
+        //   // do stuff with user
+        // })
+        .sort({ createdAt: "desc" })
+        .lean();
+
+      // const users = await User.find();
       console.log("getFeed");
-      res.send({ bugs: bugs, users });
+      res.send({ bugs: bugs });
     } catch (err) {
       console.log(err);
     }

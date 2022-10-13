@@ -120,7 +120,6 @@ const Bugs = ({ userContext }) => {
                     </th>
 
                     <th>
-                      {bug._id}
                       <DeleteModal id={bug._id} deleteBug={deleteBug} />
                     </th>
                   </tr>

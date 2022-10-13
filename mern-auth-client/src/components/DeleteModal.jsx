@@ -8,7 +8,7 @@ const Modal = ({ deleteBug, id }) => {
         htmlFor={`modal-${id}`}
         className="btn modal-button btn-warning hover:btn-error"
       >
-        delete {id}
+        delete
       </label>
 
       {/* <!-- Put this part before </body> tag --> */}
@@ -34,7 +34,7 @@ const Modal = ({ deleteBug, id }) => {
               onClick={() => deleteBug(id)}
               className="btn btn-warning hover:btn-error"
             >
-              delete {id}
+              delete
             </button>
           </div>
         </div>

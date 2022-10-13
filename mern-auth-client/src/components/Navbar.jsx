@@ -99,12 +99,6 @@ const Navbar = () => {
                 <li>
                   <Link to="/Bugs/add">Add Bug</Link>
                 </li>
-                <li>
-                  <p className="text-lg text-center">
-                    Placeholder for UserContext.image ={" "}
-                    {JSON.stringify(userContext.image)}
-                  </p>
-                </li>
               </ul>
             </div>
           </div>
@@ -120,7 +114,11 @@ const Navbar = () => {
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img
-                    src={userContext.image ? userContext.image : "./favicon.ico"}
+                    src={
+                      userContext.details?.profilePicture
+                        ? userContext.details.profilePicture
+                        : "./favicon.ico"
+                    }
                     alt="TODO"
                   />
                 </div>
@@ -130,7 +128,7 @@ const Navbar = () => {
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link className="justify-between">
+                  <Link to="/profile" className="justify-between">
                     Profile
                     <span className="badge">New</span>
                   </Link>

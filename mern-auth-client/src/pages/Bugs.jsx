@@ -40,9 +40,10 @@ const Bugs = ({ userContext }) => {
                   <input type="checkbox" className="checkbox" />
                 </label>
               </th>
-              <th>Name</th>
+              <th>Bug Name</th>
               <th>Description</th>
               <th>Priority</th>
+              <th>Attachments</th>
               <th></th>
             </tr>
           </thead>
@@ -60,14 +61,6 @@ const Bugs = ({ userContext }) => {
                     </th>
                     <td>
                       <div className="flex items-center space-x-3">
-                        <div className="avatar">
-                          <div className="mask mask-squircle w-12 h-12">
-                            <img
-                              src={bug.image || "favicon.ico"}
-                              alt="Avatar Tailwind CSS Component"
-                            />
-                          </div>
-                        </div>
                         <div>
                           <div className="font-bold">{bug.name}</div>
                           <div className="text-sm opacity-50">
@@ -84,6 +77,19 @@ const Bugs = ({ userContext }) => {
                       </span>
                     </td>
                     <td>{bug.priority.toUpperCase() || "HIGH"}</td>
+                    <td>
+                      <div className="flex items-center space-x-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img
+                              src={bug.image || "favicon.ico"}
+                              alt="Avatar Tailwind CSS Component"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
                     <th>
                       <button className="btn btn-ghost btn-xs">details</button>
                     </th>
@@ -96,9 +102,10 @@ const Bugs = ({ userContext }) => {
           <tfoot>
             <tr>
               <th></th>
-              <th>Name</th>
+              <th>Bug Name</th>
               <th>Description</th>
               <th>Priority</th>
+              <th>Attachments</th>
               <th></th>
             </tr>
           </tfoot>

@@ -43,6 +43,7 @@ module.exports = {
 
       await Bug.create({
         user: req.body.id,
+        createdBy: req.body.username,
         name: req.body.name,
         description: req.body.description,
         image: result ? result.secure_url : null,

@@ -23,8 +23,9 @@ const Bugs = ({ userContext }) => {
 
   return (
     <>
+      {/* data structure stringified
       <h2>Bugs</h2>
-      <div>{JSON.stringify(data)}</div>
+      <div>{JSON.stringify(data)}</div> */}
       {data &&
         data.bugs?.map((bug) => {
           return (
@@ -57,7 +58,7 @@ const Bugs = ({ userContext }) => {
                         <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
-                              src={"favicon.ico"}
+                              src={bug.image || "favicon.ico"}
                               alt="Avatar Tailwind CSS Component"
                             />
                           </div>
@@ -74,7 +75,7 @@ const Bugs = ({ userContext }) => {
                       {bug.description}
                       <br />
                       <span className="badge badge-ghost badge-sm">
-                        {bug.user.role || "Desktop Support Technician"}
+                        {bug.user?.role || "Desktop Support Technician"}
                       </span>
                     </td>
                     <td>{bug.priority.toUpperCase() || "HIGH"}</td>

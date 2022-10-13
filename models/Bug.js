@@ -5,6 +5,10 @@ const BugSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  createdBy: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

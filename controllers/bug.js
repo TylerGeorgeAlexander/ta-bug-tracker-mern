@@ -37,9 +37,9 @@ module.exports = {
         result = await cloudinary.uploader.upload(req.file.path);
       }
 
-      console.log(JSON.stringify(req.body));
-      console.log(JSON.stringify(req.file));
-      console.log(JSON.stringify(req.file.path));
+      // console.log(JSON.stringify(req.body));
+      // console.log(JSON.stringify(req.file));
+      // console.log(JSON.stringify(req.file.path));
 
       await Bug.create({
         user: req.body.id,

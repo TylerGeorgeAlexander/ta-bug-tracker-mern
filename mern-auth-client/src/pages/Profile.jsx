@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ProfileForm from "../components/ProfileForm";
 
 const Profile = ({ userContext }) => {
-  const [bodyData, setBodyData] = useState({});
-
   const savePicture = async (e) => {
-    const UPLOAD_ENDPOINT = "http://localhost:8081/users/addProfilePicture";
+    const UPLOAD_ENDPOINT = "http://localhost:8081/users/profilePicture";
 
     var formData = new FormData();
     e.preventDefault();
     console.log(e);
 
     // Create bodyData object
-    setBodyData({
-      ...bodyData,
-      id: userContext.details._id,
-    });
+    // setBodyData({
+    //   ...bodyData,
+    //   id: userContext.details._id,
+    // });
 
     formData.append("id", userContext.details._id);
 
@@ -81,6 +80,8 @@ const Profile = ({ userContext }) => {
           </button>
         </div>
       </form>
+      <hr className="m-4" />
+      <ProfileForm userContext={userContext} />
     </>
   );
 };

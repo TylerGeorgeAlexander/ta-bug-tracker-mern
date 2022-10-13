@@ -1,21 +1,35 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import DeleteModal from "../components/DeleteModal";
-import { useNavigate } from "react-router-dom";
 
 const Bugs = ({ userContext }) => {
-  const navigate = useNavigate();
-  const UPLOAD_ENDPOINT = "http://localhost:8081/bug/getFeed";
-
   const [data, setData] = useState([]);
+  const [usersData, setUsersData] = useState([]);
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${userContext.token}`,
-    },
-  };
   const getData = async () => {
+    const UPLOAD_ENDPOINT = "http://localhost:8081/bug/getFeed";
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userContext.token}`,
+      },
+    };
+
+    const { data } = await axios.get(UPLOAD_ENDPOINT, config);
+    setData(data);
+  };
+
+  const getUserData = async () => {
+    const UPLOAD_ENDPOINT = "http://localhost:8081/bug/getFeed";
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userContext.token}`,
+      },
+    };
+
     const { data } = await axios.get(UPLOAD_ENDPOINT, config);
     setData(data);
   };
@@ -23,6 +37,7 @@ const Bugs = ({ userContext }) => {
   useEffect(
     () => {
       getData();
+      getUserData();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -36,12 +51,8 @@ const Bugs = ({ userContext }) => {
       .delete(UPLOAD_ENDPOINT)
       .then(function (response) {
         console.log(response);
-        getData();
       })
-      .then(
-        // Redirect to Bug Feed
-        navigate("/bugs")
-      )
+      .then(getData())
       .catch(function (error) {
         console.log(error);
       });
@@ -66,6 +77,7 @@ const Bugs = ({ userContext }) => {
               <th>Description</th>
               <th>Priority</th>
               <th>Attachments</th>
+              <th>Created By</th>
               <th></th>
               <th></th>
             </tr>
@@ -115,13 +127,27 @@ const Bugs = ({ userContext }) => {
                       </div>
                     </td>
 
-                    <th>
-                      <button className="btn btn-ghost btn-xs">details</button>
-                    </th>
+                    <td>
+                      {bug.createdBy}{" "}
+                      <div className="flex items-center space-x-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img
+                              src={usersData.profilePicture || "favicon.ico"}
+                              alt="Avatar Tailwind CSS Component"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </td>
 
-                    <th>
+                    <td>
+                      <button className="btn btn-ghost btn-xs">details</button>
+                    </td>
+
+                    <td>
                       <DeleteModal id={bug._id} deleteBug={deleteBug} />
-                    </th>
+                    </td>
                   </tr>
                 );
               })}
@@ -135,6 +161,7 @@ const Bugs = ({ userContext }) => {
               <th>Description</th>
               <th>Priority</th>
               <th>Attachments</th>
+              <th>Created By</th>
               <th></th>
               <th></th>
             </tr>

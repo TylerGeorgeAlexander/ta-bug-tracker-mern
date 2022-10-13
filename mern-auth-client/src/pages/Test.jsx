@@ -27,7 +27,7 @@ const Test = () => {
 
   return (
     <>
-      {dataTest && dataTest.bugs}
+      {dataTest && JSON.stringify(dataTest.bugs)}
       <div
         className="hero min-h-screen"
         style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}

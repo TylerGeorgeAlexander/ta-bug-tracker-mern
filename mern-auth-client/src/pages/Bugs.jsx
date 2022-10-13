@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import DeleteModal from "../components/DeleteModal";
+import { useNavigate } from "react-router-dom";
 
 const Bugs = ({ userContext }) => {
+  const navigate = useNavigate();
   const UPLOAD_ENDPOINT = "http://localhost:8081/bug/getFeed";
 
   const [data, setData] = useState([]);
@@ -33,7 +36,12 @@ const Bugs = ({ userContext }) => {
       .delete(UPLOAD_ENDPOINT)
       .then(function (response) {
         console.log(response);
+        getData();
       })
+      .then(
+        // Redirect to Bug Feed
+        navigate("/bugs")
+      )
       .catch(function (error) {
         console.log(error);
       });
@@ -112,12 +120,8 @@ const Bugs = ({ userContext }) => {
                     </th>
 
                     <th>
-                      <button
-                        onClick={() => deleteBug(bug._id)}
-                        className="btn btn-ghost btn-xs"
-                      >
-                        delete
-                      </button>
+                      {bug._id}
+                      <DeleteModal id={bug._id} deleteBug={deleteBug} />
                     </th>
                   </tr>
                 );

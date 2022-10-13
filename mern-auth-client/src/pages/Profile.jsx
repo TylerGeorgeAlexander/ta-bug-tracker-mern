@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ImageUpload from "../components/ImageUpload";
 
 const Profile = ({ userContext }) => {
   const [bodyData, setBodyData] = useState({});
 
-  const submitForm = async (e) => {
+  const savePicture = async (e) => {
     const UPLOAD_ENDPOINT = "http://localhost:8081/users/addProfilePicture";
 
     var formData = new FormData();
@@ -18,10 +17,6 @@ const Profile = ({ userContext }) => {
       id: userContext.details._id,
     });
 
-    // var name = document.getElementById("testName").value;
-    // formData.append("name", bodyData.name);
-    // formData.append("description", bodyData.description);
-    // formData.append("priority", bodyData.priority);
     formData.append("id", userContext.details._id);
 
     var file = document.getElementById("file");
@@ -52,20 +47,40 @@ const Profile = ({ userContext }) => {
 
   return (
     <>
-      <h2 className="text-lg">Profile:</h2>
+      <h2 className="text-lg flex justify-center">
+        {userContext.details?.username}'s profile info:
+      </h2>
       <span className="text-sm opacity-50">
-        {JSON.stringify(userContext.details)}
+        userContext.details stringified:{" "}
+        {JSON.stringify(userContext.details, null, "\n")}
       </span>
-      <form onSubmit={submitForm} id="testForm">
-        <label>
-          Profile Picture:
-          <input type="file" name="file" id="file" />
-        </label>
-        <button className="btn btn-primary" type="submit">
-          Save
-        </button>
+      <form onSubmit={savePicture} id="pictureForm">
+        <div className="flex justify-center">
+          <div className="mb-3 w-96">
+            <div className="flex justify-center">
+              <label
+                htmlFor="file"
+                className="form-label inline-block mb-2 text-gray-700 text-lg"
+              >
+                Upload Profile Picture
+              </label>
+            </div>
+            <input
+              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              type="file"
+              id="file"
+            />
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <button
+            className="btn btn-primary text-center"
+            onSubmit={savePicture}
+          >
+            Save
+          </button>
+        </div>
       </form>
-      <ImageUpload />
     </>
   );
 };

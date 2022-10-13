@@ -89,7 +89,7 @@ function App() {
           />
           <Route
             exact
-            path="/profile"
+            path="/profile/:id"
             element={<Profile userContext={userContext} />}
           />
           <Route path="*" element={<NoPage />} />

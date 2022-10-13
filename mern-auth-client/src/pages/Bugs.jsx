@@ -60,7 +60,7 @@ const Bugs = ({ userContext }) => {
                       </label>
                     </th>
                     <td>
-                      <div className="flex items-center space-x-3">
+                      <div className="flex items-center space-x-3 whitespace-normal">
                         <div>
                           <div className="font-bold">{bug.name}</div>
                           <div className="text-sm opacity-50">
@@ -70,7 +70,9 @@ const Bugs = ({ userContext }) => {
                       </div>
                     </td>
                     <td>
-                      {bug.description}
+                      <div className="flex items-center space-x-3 whitespace-normal">
+                        {bug.description}
+                      </div>
                       <br />
                       <span className="badge badge-ghost badge-sm">
                         {bug.user?.role || "Desktop Support Technician"}

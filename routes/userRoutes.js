@@ -164,9 +164,11 @@ const userController = require("../controllers/user");
 
 // TODO link 'verifyUser' auth middleware when done testing
 router.put(
-  "/addProfilePicture",
+  "/profilePicture",
   upload.single("file"),
-  userController.addProfilePicture
+  userController.profilePicture
 );
+
+router.put("/editProfile/:id", userController.editProfile);
 
 module.exports = router;

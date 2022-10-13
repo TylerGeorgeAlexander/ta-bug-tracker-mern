@@ -30,12 +30,13 @@ const Modal = ({ deleteBug, id }) => {
             {/* <label htmlFor={`modal-${id}`} className="btn">
               DELETE
             </label> */}
-            <button
+            <label
+              htmlFor={`modal-${id}`}
               onClick={() => deleteBug(id)}
               className="btn btn-warning hover:btn-error"
             >
               delete
-            </button>
+            </label>
           </div>
         </div>
       </div>

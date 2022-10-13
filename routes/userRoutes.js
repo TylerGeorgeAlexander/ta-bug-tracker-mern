@@ -158,4 +158,15 @@ router.post("/refreshToken", (req, res, next) => {
   }
 });
 
+// Separated controller with middleware
+const upload = require("../middleware/multer");
+const userController = require("../controllers/user");
+
+// TODO link 'verifyUser' auth middleware when done testing
+router.put(
+  "/addProfilePicture",
+  upload.single("file"),
+  userController.addProfilePicture
+);
+
 module.exports = router;

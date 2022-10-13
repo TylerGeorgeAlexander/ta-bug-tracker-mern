@@ -43,6 +43,7 @@ const BugForm = ({ userContext }) => {
     });
 
     // var name = document.getElementById("testName").value;
+    formData.append("id", userContext.details._id);
     formData.append("name", bodyData.name);
     formData.append("description", bodyData.description);
     formData.append("priority", bodyData.priority);
@@ -128,9 +129,9 @@ const BugForm = ({ userContext }) => {
           Submit
         </button>
       </form>
-      <button className="btn btn-secondary" type="click" onClick={clickTest}>
+      {/* <button className="btn btn-secondary" type="click" onClick={clickTest}>
         Click Test
-      </button>
+      </button> */}
     </>
   );
 };

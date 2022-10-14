@@ -96,6 +96,7 @@ const Bugs = ({ userContext }) => {
                           className="checkbox"
                           // Checked off if Bug is resolved
                           checked={bug.resolved}
+                          readOnly
                         />
                       </label>
                     </th>

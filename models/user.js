@@ -23,10 +23,6 @@ const User = new Schema({
     type: String,
     default: "local",
   },
-  points: {
-    type: Number,
-    default: 50,
-  },
   refreshToken: {
     type: [Session],
   },
@@ -45,6 +41,14 @@ const User = new Schema({
   rank: {
     type: Number,
     default: 3,
+  },
+  level: {
+    type: Number,
+    default: 1,
+  },
+  xp: {
+    type: Number,
+    default: 0,
   },
 });
 

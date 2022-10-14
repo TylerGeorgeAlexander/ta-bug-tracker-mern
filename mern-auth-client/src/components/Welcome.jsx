@@ -84,7 +84,10 @@ const Welcome = () => {
             !
           </p>
           <p>
-            Your reward points: <strong>{userContext.details.points}</strong>
+            Your Level: <strong>{userContext.details?.level}</strong>
+          </p>
+          <p>
+            Your exp points: <strong>{userContext.details?.xp}</strong>
           </p>
         </div>
         <div className="user-actions">

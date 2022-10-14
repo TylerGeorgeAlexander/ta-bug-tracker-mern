@@ -58,6 +58,7 @@ module.exports = {
         image: result ? result.secure_url : null,
         cloudinaryId: result ? result.public_id : null,
         priority: req.body.priority,
+        resolved: false,
         //openedDate is defaulted in schema
       });
       console.log("Bug has been added!");
@@ -79,6 +80,17 @@ module.exports = {
       );
       console.log("Likes +1");
       res.redirect(`/bug/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  resolveBug: async (req, res) => {
+    try {
+      await Bug.findOneAndUpdate({ _id: req.params.id }, [
+        { $set: { resolved: { $not: "$resolved" } } },
+      ]);
+      console.log("Bug resolved status has been changed!");
+      res.status(200).send("Bug resolved status has been changed!");
     } catch (err) {
       console.log(err);
     }

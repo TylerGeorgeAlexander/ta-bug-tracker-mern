@@ -46,13 +46,14 @@ const Profile = ({ userContext }) => {
 
   return (
     <>
-      <h2 className="text-lg flex justify-center">
-        {userContext.details?.username}'s profile info:
-      </h2>
-      <span className="text-sm opacity-50">
-        userContext.details stringified:{" "}
-        {JSON.stringify(userContext.details, null, "\n")}
-      </span>
+      <div className="m-4">
+        <h2 className="text-lg flex justify-center font-bold">
+          {userContext.details?.username}'s
+        </h2>
+        <span className="text-md flex justify-center font-semibold opacity-50">
+          {`profile`.toUpperCase()}
+        </span>
+      </div>
       <form onSubmit={savePicture} id="pictureForm">
         <div className="flex justify-center">
           <div className="mb-3 w-96">

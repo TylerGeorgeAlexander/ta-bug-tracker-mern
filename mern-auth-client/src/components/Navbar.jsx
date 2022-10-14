@@ -1,6 +1,8 @@
 import React, { useCallback, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import Avatar from "./Avatar";
+import AvatarPlaceholder from "./AvatarPlaceholder";
 // import Loader from "./Loader";
 
 const Navbar = () => {
@@ -112,15 +114,20 @@ const Navbar = () => {
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img
-                    src={
-                      userContext.details?.profilePicture
-                        ? userContext.details.profilePicture
-                        : "./favicon.ico"
-                    }
-                    alt="TODO"
-                  />
+                <div className="w-12 rounded-full">
+                  {userContext.details &&
+                  userContext.details?.profilePicture ? (
+                    <Avatar
+                      picture={userContext.details?.profilePicture}
+                      firstName={userContext.details?.firstName}
+                      lastName={userContext.details?.lastName}
+                    />
+                  ) : (
+                    <AvatarPlaceholder
+                      firstName={userContext.details?.firstName || ""}
+                      lastName={userContext.details?.lastName || ""}
+                    />
+                  )}
                 </div>
               </label>
               <ul

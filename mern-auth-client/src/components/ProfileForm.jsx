@@ -14,30 +14,13 @@ const ProfileForm = ({ userContext }) => {
   const editProfile = async (e) => {
     const UPLOAD_ENDPOINT = `http://localhost:8081/users/editProfile/${id}`;
 
-    // var formData = new FormData();
     e.preventDefault();
     console.log(e);
-
-    // Create bodyData object
-    // setBodyData({
-    //   ...bodyData,
-    //   id: userContext.details._id,
-    // });
-
-    // formData.append("id", userContext.details._id);
-
-    // var file = document.getElementById("file");
-    // console.log(file.files[0]);
-    // formData.append("file", file.files[0]);
-    // for (var key of formData.entries()) {
-    //   console.log(key[0] + ", " + key[1]);
-    // }
 
     return await axios({
       method: "put",
       url: UPLOAD_ENDPOINT,
       data: bodyData,
-      //   headers: { "Content-Type": "multipart/form-data" },
     })
       .then(function (response) {
         //handle success
@@ -52,17 +35,6 @@ const ProfileForm = ({ userContext }) => {
       });
   };
 
-  const clickConsole = () => {
-    // Create bodyData object
-    // setBodyData({
-    //   ...bodyData,
-    //   id: userContext.details._id,
-    // });
-
-    console.log("useParams", id);
-
-    return console.log(bodyData);
-  };
 
   return (
     <>
@@ -125,11 +97,6 @@ const ProfileForm = ({ userContext }) => {
           </button>
         </div>
       </form>
-      <div className="flex justify-center m-2">
-        <button className="btn btn-ghost" onClick={clickConsole}>
-          Console Log
-        </button>
-      </div>
     </>
   );
 };

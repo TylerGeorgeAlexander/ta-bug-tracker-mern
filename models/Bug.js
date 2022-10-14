@@ -33,6 +33,11 @@ const BugSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  resolved: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 
 module.exports = mongoose.model("Bug", BugSchema);

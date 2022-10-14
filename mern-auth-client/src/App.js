@@ -62,7 +62,7 @@ function App() {
 
   return userContext.token === null ? (
     <div className="login-body">
-      <Card elevation="1">
+      <Card elevation="1" className="m-4">
         <Tabs id="Tabs" onChange={setCurrentTab} selectedTabId={currentTab}>
           <Tab id="login" title="Login" panel={<Login />} />
           <Tab id="register" title="Register" panel={<Register />} />

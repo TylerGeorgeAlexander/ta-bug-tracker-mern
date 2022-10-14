@@ -114,10 +114,6 @@ const Bugs = ({ userContext }) => {
                       <div className="flex items-center space-x-3 whitespace-normal justify-center">
                         {bug.description}
                       </div>
-                      <br />
-                      <span className="badge badge-ghost badge-sm">
-                        {bug.user?.role || "Software Engineer I"}
-                      </span>
                     </td>
                     <td className="text-center">
                       {bug.priority.toUpperCase() || "HIGH"}
@@ -137,20 +133,32 @@ const Bugs = ({ userContext }) => {
 
                     <td>
                       <div className="flex items-center space-x-3 justify-center">
-                        <span className="text-center">{bug.createdBy}</span>
-
-                        {bug.user.profilePicture ? (
-                          <Avatar
-                            picture={bug.user.profilePicture}
-                            firstName={bug.user.firstName}
-                            lastName={bug.user.lastName}
-                          />
-                        ) : (
-                          <AvatarPlaceholder
-                            firstName={bug.user.firstName}
-                            lastName={bug.user.lastName}
-                          />
-                        )}
+                        <div className="grid text-center">
+                          <div className="grid-cols-1">
+                            <span className="text-center font-semibold">
+                              {bug.createdBy}
+                            </span>
+                          </div>
+                          <div className="grid-cols-1 m-2">
+                            {bug.user.profilePicture ? (
+                              <Avatar
+                                picture={bug.user.profilePicture}
+                                firstName={bug.user.firstName}
+                                lastName={bug.user.lastName}
+                              />
+                            ) : (
+                              <AvatarPlaceholder
+                                firstName={bug.user.firstName}
+                                lastName={bug.user.lastName}
+                              />
+                            )}
+                          </div>
+                          <div className="grid-cols-1">
+                            <span className="badge badge-ghost badge-sm">
+                              {bug.user?.role || "Software Engineer I"}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </td>
 

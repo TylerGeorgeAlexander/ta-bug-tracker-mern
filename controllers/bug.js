@@ -31,9 +31,9 @@ module.exports = {
   },
   getBug: async (req, res) => {
     try {
-      const bug = await Bug.findById(req.params.id);
-      const comments = await Comment.find({ bug: req.params.id });
-      res.send({ bug: bug, user: req.user, comments: comments });
+      const bug = await Bug.findById(req.params.bugId);
+      const comments = await Comment.find({ bug: req.params.bugId });
+      res.send({ bug: bug, comments: comments });
     } catch (err) {
       console.log(err);
     }
@@ -91,6 +91,17 @@ module.exports = {
       ]);
       console.log("Bug resolved status has been changed!");
       res.status(200).send("Bug resolved status has been changed!");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  assignBug: async (req, res) => {
+    try {
+      await Bug.findOneAndUpdate({ _id: req.params.id }, [
+        { $set: { assignedTo: req.body.user } },
+      ]);
+      console.log("Bug has been assigned!");
+      res.status(200).send("Bug has been assigned!");
     } catch (err) {
       console.log(err);
     }

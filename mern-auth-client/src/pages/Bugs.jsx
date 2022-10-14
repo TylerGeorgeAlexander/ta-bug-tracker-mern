@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import DeleteModal from "../components/DeleteModal";
 import AvatarPlaceholder from "../components/AvatarPlaceholder";
 import Avatar from "../components/Avatar";
@@ -164,7 +166,12 @@ const Bugs = ({ userContext }) => {
                     </td>
 
                     <td className="text-center">
-                      <button className="btn btn-ghost btn-xs">details</button>
+                      <Link
+                        to={`/details/${bug._id}`}
+                        className="btn btn-ghost btn-xs"
+                      >
+                        details
+                      </Link>
                     </td>
 
                     <td className="text-center">

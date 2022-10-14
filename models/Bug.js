@@ -39,6 +39,10 @@ const BugSchema = new mongoose.Schema({
     required: true,
     default: false,
   },
+  assignedTo: {
+    type: String,
+    default: null,
+  },
 });
 
 module.exports = mongoose.model("Bug", BugSchema);

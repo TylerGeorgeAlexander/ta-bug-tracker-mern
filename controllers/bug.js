@@ -15,7 +15,7 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const bugs = await Bug.find()
-        .populate("user", "profilePicture")
+        .populate("user")
         // .exec(function (err, bugs) {
         //   // do stuff with user
         // })

@@ -36,6 +36,16 @@ const User = new Schema({
   cloudinaryId: {
     type: String,
   },
+  // User Hierarchical Rank
+  /*
+    1 = Admin
+    2 = Boss / Advanced Access
+    3 = Worker / Regular Access
+  */
+  rank: {
+    type: Number,
+    default: 3,
+  },
 });
 
 //Remove refreshToken from the response

@@ -163,7 +163,9 @@ const Bugs = ({ userContext }) => {
                         <ResolveModal id={bug._id} resolveBug={resolveBug} />
                       </div>
                       <div className="m-2">
-                        {userContext.details && <DeleteModal id={bug._id} deleteBug={deleteBug} />}
+                        {userContext.details?.rank === 1 && (
+                          <DeleteModal id={bug._id} deleteBug={deleteBug} />
+                        )}
                       </div>
                     </td>
                   </tr>

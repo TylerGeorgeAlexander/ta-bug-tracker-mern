@@ -32,8 +32,9 @@ module.exports = {
   getBug: async (req, res) => {
     try {
       const bug = await Bug.findById(req.params.bugId);
+      const users = await User.find();
       const comments = await Comment.find({ bug: req.params.bugId });
-      res.send({ bug: bug, comments: comments });
+      res.send({ bug: bug, users, comments: comments });
     } catch (err) {
       console.log(err);
     }
@@ -96,10 +97,12 @@ module.exports = {
     }
   },
   assignBug: async (req, res) => {
+    console.log("assignBug controller", req.body);
     try {
-      await Bug.findOneAndUpdate({ _id: req.params.id }, [
-        { $set: { assignedTo: req.body.user } },
-      ]);
+      await Bug.findOneAndUpdate(
+        { _id: req.params.bugId },
+        { assignedTo: req.body.assignedTo }
+      );
       console.log("Bug has been assigned!");
       res.status(200).send("Bug has been assigned!");
     } catch (err) {

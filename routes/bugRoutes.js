@@ -17,7 +17,7 @@ router.put("/likeBug/:id", bugController.likeBug);
 
 router.put("/resolveBug/:id", bugController.resolveBug);
 
-router.put("/assignBug/:id", bugController.assignBug);
+router.put("/assignBug/:bugId", bugController.assignBug);
 
 router.delete("/deleteBug/:id", bugController.deleteBug);
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import DeleteModal from "../components/DeleteModal";
 import AvatarPlaceholder from "../components/AvatarPlaceholder";
 import Avatar from "../components/Avatar";
+import ResolveModal from "../components/ResolveModal";
 
 const Bugs = ({ userContext }) => {
   const [data, setData] = useState([]);
@@ -44,6 +45,19 @@ const Bugs = ({ userContext }) => {
       });
   };
 
+  // Resolved Function
+  const resolveBug = async (id) => {
+    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/resolveBug/${id}`;
+
+    await axios.put(UPLOAD_ENDPOINT);
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    return await getData().catch(function (error) {
+      console.log(error);
+    });
+  };
+
   return (
     <>
       {/* data structure stringified
@@ -77,7 +91,12 @@ const Bugs = ({ userContext }) => {
                   <tr key={`${bug._id} tr`}>
                     <th>
                       <label>
-                        <input type="checkbox" className="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="checkbox"
+                          // Checked off if Bug is resolved
+                          checked={bug.resolved}
+                        />
                       </label>
                     </th>
                     <td>
@@ -139,7 +158,12 @@ const Bugs = ({ userContext }) => {
                     </td>
 
                     <td className="text-center">
-                      <DeleteModal id={bug._id} deleteBug={deleteBug} />
+                      <div className="m-2">
+                        <ResolveModal id={bug._id} resolveBug={resolveBug} />
+                      </div>
+                      <div className="m-2">
+                        {userContext.details && <DeleteModal id={bug._id} deleteBug={deleteBug} />}
+                      </div>
                     </td>
                   </tr>
                 );

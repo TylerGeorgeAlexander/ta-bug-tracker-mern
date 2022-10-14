@@ -13,6 +13,8 @@ router.post("/createBug", upload.single("file"), bugController.createBug);
 
 router.put("/likeBug/:id", bugController.likeBug);
 
+router.put("/resolveBug/:id", bugController.resolveBug);
+
 router.delete("/deleteBug/:id", bugController.deleteBug);
 
 module.exports = router;

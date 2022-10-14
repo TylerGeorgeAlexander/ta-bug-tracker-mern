@@ -28,6 +28,7 @@ const BugSchema = new mongoose.Schema({
   priority: {
     type: String,
     required: true,
+    default: "low",
   },
   openedDate: {
     type: Date,

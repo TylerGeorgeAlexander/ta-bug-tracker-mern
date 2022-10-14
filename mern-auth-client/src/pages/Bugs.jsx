@@ -4,6 +4,7 @@ import DeleteModal from "../components/DeleteModal";
 import AvatarPlaceholder from "../components/AvatarPlaceholder";
 import Avatar from "../components/Avatar";
 import ResolveModal from "../components/ResolveModal";
+import PriorityPill from "../components/PriorityPill";
 
 const Bugs = ({ userContext }) => {
   const [data, setData] = useState([]);
@@ -116,7 +117,7 @@ const Bugs = ({ userContext }) => {
                       </div>
                     </td>
                     <td className="text-center">
-                      {bug.priority.toUpperCase() || "HIGH"}
+                      <PriorityPill priority={bug.priority} />
                     </td>
                     <td>
                       <div className="flex items-center space-x-3 justify-center">

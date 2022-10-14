@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import DeleteModal from "../components/DeleteModal";
+import AvatarPlaceholder from "../components/AvatarPlaceholder";
+import Avatar from "../components/Avatar";
 
 const Bugs = ({ userContext }) => {
   const [data, setData] = useState([]);
@@ -115,15 +117,20 @@ const Bugs = ({ userContext }) => {
 
                     <td>
                       <div className="flex items-center space-x-3 justify-center">
-                        <span>{bug.createdBy}</span>
-                        <div className="avatar">
-                          <div className="mask mask-squircle w-12 h-12">
-                            <img
-                              src={bug.user.profilePicture || "favicon.ico"}
-                              alt="User's Avatar"
-                            />
-                          </div>
-                        </div>
+                        <span className="text-center">{bug.createdBy}</span>
+
+                        {bug.user.profilePicture ? (
+                          <Avatar
+                            picture={bug.user.profilePicture}
+                            firstName={bug.user.firstName}
+                            lastName={bug.user.lastName}
+                          />
+                        ) : (
+                          <AvatarPlaceholder
+                            firstName={bug.user.firstName}
+                            lastName={bug.user.lastName}
+                          />
+                        )}
                       </div>
                     </td>
 

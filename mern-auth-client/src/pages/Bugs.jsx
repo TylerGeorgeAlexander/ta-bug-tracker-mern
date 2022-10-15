@@ -92,7 +92,7 @@ const Bugs = ({ userContext }) => {
             {data &&
               data.bugs?.map((bug) => {
                 return (
-                  <tr key={`${bug._id} tr`}>
+                  <tr key={`${bug._id} tr`} className="hover">
                     <th>
                       <label>
                         <input

@@ -22,9 +22,11 @@ module.exports = {
         .sort({ createdAt: "desc" })
         .lean();
 
+      const users = await User.find();
+
       // const users = await User.find();
       console.log("getFeed");
-      res.send({ bugs: bugs });
+      res.send({ bugs: bugs, users });
     } catch (err) {
       console.log(err);
     }

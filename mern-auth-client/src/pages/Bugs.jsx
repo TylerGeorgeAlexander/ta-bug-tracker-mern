@@ -81,6 +81,7 @@ const Bugs = ({ userContext }) => {
               <th className="text-center">Priority</th>
               <th className="text-center">Attachments</th>
               <th className="text-center">Created By</th>
+              <th className="text-center">Assigned To</th>
               <th></th>
               <th></th>
             </tr>
@@ -166,6 +167,39 @@ const Bugs = ({ userContext }) => {
                     </td>
 
                     <td className="text-center">
+                      <div className="flex items-center space-x-3 justify-center">
+                        <div className="grid text-center">
+                          <div className="grid-cols-1">
+                            <span className="text-center font-semibold">
+                              {bug.assignedTo}
+                            </span>
+                          </div>
+                          <div className="grid-cols-1 m-2">
+                            {bug.assignedTo ? (
+                              <Avatar
+                                picture={bug.user.profilePicture}
+                                firstName={bug.user.firstName}
+                                lastName={bug.user.lastName}
+                              />
+                            ) : (
+                              <AvatarPlaceholder
+                                firstName={"N"}
+                                lastName={"A"}
+                              />
+                            )}
+                          </div>
+                          <div className="grid-cols-1">
+                            {bug.user.role && (
+                              <span className="badge badge-ghost badge-sm">
+                                {bug.user?.role}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="text-center">
                       <Link
                         to={`/details/${bug._id}`}
                         className="btn btn-ghost btn-xs"
@@ -198,6 +232,7 @@ const Bugs = ({ userContext }) => {
               <th className="text-center">Priority</th>
               <th className="text-center">Attachments</th>
               <th className="text-center">Created By</th>
+              <th className="text-center">Assigned To</th>
               <th></th>
               <th></th>
             </tr>

@@ -87,8 +87,8 @@ const Navbar = () => {
       <nav className="m-4">
         <div className="navbar bg-base-100 shadow-lg rounded-lg">
           <div className="flex-1">
-            <Link className="btn btn-ghost normal-case text-xl" to="/test">
-              testPage
+            <Link className="btn btn-ghost normal-case text-xl m-2" to="/test">
+              bugTracker 🐬
             </Link>
             <div className="text-sm breadcrumbs">
               <ul>

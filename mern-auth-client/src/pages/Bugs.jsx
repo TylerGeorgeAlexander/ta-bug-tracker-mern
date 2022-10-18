@@ -134,6 +134,7 @@ const Bugs = ({ userContext }) => {
                           />
                         </label>
                       </th>
+                      {/* BUGS NAME */}
                       <td>
                         <div className="flex items-center space-x-3 whitespace-normal">
                           <div>
@@ -144,14 +145,17 @@ const Bugs = ({ userContext }) => {
                           </div>
                         </div>
                       </td>
+                      {/* DESCRIPTION */}
                       <td>
                         <div className="flex items-center space-x-3 whitespace-normal justify-center">
                           {bug.description}
                         </div>
                       </td>
+                      {/* PRIORITY */}
                       <td className="text-center">
                         <PriorityPill priority={bug.priority} />
                       </td>
+                      {/* ATTACHMENTS */}
                       <td>
                         <div className="flex items-center space-x-3 justify-center">
                           <div className="avatar">
@@ -164,7 +168,7 @@ const Bugs = ({ userContext }) => {
                           </div>
                         </div>
                       </td>
-
+                      {/* CREATED BY */}
                       <td>
                         <div className="flex items-center space-x-3 justify-center">
                           <div className="grid text-center">
@@ -195,7 +199,7 @@ const Bugs = ({ userContext }) => {
                           </div>
                         </div>
                       </td>
-
+                      {/* ASSIGNED TO */}
                       <td className="text-center">
                         <div className="flex items-center space-x-3 justify-center">
                           <div className="grid text-center">

@@ -7,7 +7,9 @@ const { verifyUser } = require("../middleware/authenticate");
 //Bug Routes - simplified for now
 // router.get("/:id",  bugController.getBug);
 
-router.get("/getFeed", verifyUser, bugController.getFeed);
+// TODO verifyUser on production
+// router.get("/getFeed", verifyUser, bugController.getFeed);
+router.get("/getFeed", bugController.getFeed);
 
 router.get("/getBug/:bugId", verifyUser, bugController.getBug);
 

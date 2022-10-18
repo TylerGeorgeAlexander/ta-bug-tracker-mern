@@ -88,7 +88,8 @@ const Navbar = () => {
         <div className="navbar bg-base-100 shadow-lg rounded-lg">
           <div className="flex-1">
             <Link className="btn btn-ghost normal-case text-xl m-2" to="/test">
-              bugTracker 🐬
+            <img src="favicon-32x32.png" alt="Bug Tracker" className="m-2"/>
+              bugTracker
             </Link>
             <div className="text-sm breadcrumbs">
               <ul>

@@ -14,6 +14,8 @@ const Bugs = ({ userContext }) => {
     assignedTo: "",
     createdBy: "",
     type: "",
+    priority: "",
+    resolved: "",
   });
 
   const getData = async () => {
@@ -73,6 +75,7 @@ const Bugs = ({ userContext }) => {
       {/* <div>{JSON.stringify(data)}</div> */}
       {/* <p>{JSON.stringify(filter)}</p> */}
       <div className="flex justify-center align-middle">
+        {/* CREATED BY FILTER SELECT */}
         <div className="form-control w-full max-w-xs m-2">
           <label htmlFor="createdBy" className="label">
             <span className="label-text">Created By: </span>
@@ -98,6 +101,7 @@ const Bugs = ({ userContext }) => {
               ))}
           </select>
         </div>
+        {/* ASSIGNED TO FILTER SELECT */}
         <div className="form-control w-full max-w-xs m-2">
           <label htmlFor="assignedTo" className="label">
             <span className="label-text">Assigned To: </span>
@@ -111,6 +115,51 @@ const Bugs = ({ userContext }) => {
             onChange={(e) =>
               setFilter({ ...filter, assignedTo: e.target.value })
             }
+            className="select select-bordered w-full max-w-xs"
+          >
+            <option value="">ALL</option>
+            {data &&
+              data.users?.map((user) => (
+                <option
+                  key={user._id}
+                  value={user._id}
+                >{`${user.firstName} ${user.lastName}`}</option>
+              ))}
+          </select>
+        </div>
+        {/* PRIORITY FILTER SELECT */}
+        <div className="form-control w-full max-w-xs m-2">
+          <label htmlFor="priority" className="label">
+            <span className="label-text">Priority: </span>
+            <span className="label-text-alt">Filter</span>
+          </label>
+          <select
+            id="priority"
+            name="priority"
+            value={filter.priority}
+            required
+            onChange={(e) => setFilter({ ...filter, priority: e.target.value })}
+            className="select select-bordered w-full max-w-xs"
+          >
+            <option value="">ALL</option>
+            <option value="low">LOW</option>
+            <option value="medium">MEDIUM</option>
+            <option value="high">HIGH</option>
+            <option value="immediately">IMMEDIATELY</option>
+          </select>
+        </div>
+        {/* RESOLVED FILTER SELECT */}
+        <div className="form-control w-full max-w-xs m-2">
+          <label htmlFor="resolved" className="label">
+            <span className="label-text">Created By: </span>
+            <span className="label-text-alt">Filter</span>
+          </label>
+          <select
+            id="resolved"
+            name="resolved"
+            value={filter.resolved}
+            required
+            onChange={(e) => setFilter({ ...filter, resolved: e.target.value })}
             className="select select-bordered w-full max-w-xs"
           >
             <option value="">ALL</option>
@@ -155,6 +204,9 @@ const Bugs = ({ userContext }) => {
                 .filter((bug) =>
                   filter.assignedTo ? bug.assignedTo === filter.assignedTo : bug
                 )
+                .filter((bug) =>
+                filter.priority ? bug.priority === filter.priority : bug
+              )
                 .map((bug) => {
                   return (
                     <tr key={`${bug._id} tr`} className="hover">

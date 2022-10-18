@@ -68,47 +68,61 @@ const Bugs = ({ userContext }) => {
 
   return (
     <>
-      data structure stringified
-      <h2>Bugs</h2>
+      {/* data structure stringified
+      <h2>Bugs</h2> */}
       {/* <div>{JSON.stringify(data)}</div> */}
-      <p>{JSON.stringify(filter)}</p>
-      <div className="flex justify-center">
-        <label htmlFor="createdBy"> Created By: </label>
-        <select
-          id="createdBy"
-          name="createdBy"
-          value={filter.createdBy}
-          required
-          onChange={(e) => setFilter({ ...filter, createdBy: e.target.value })}
-          className="select select-bordered w-full max-w-xs"
-        >
-          <option value="">ALL</option>
-          {data &&
-            data.users?.map((user) => (
-              <option
-                key={user._id}
-                value={user._id}
-              >{`${user.firstName} ${user.lastName}`}</option>
-            ))}
-        </select>
-        <label htmlFor="assignedTo"> Assigned To: </label>
-        <select
-          id="assignedTo"
-          name="assignedTo"
-          value={filter.assignedTo}
-          required
-          onChange={(e) => setFilter({ ...filter, assignedTo: e.target.value })}
-          className="select select-bordered w-full max-w-xs"
-        >
-          <option value="">ALL</option>
-          {data &&
-            data.users?.map((user) => (
-              <option
-                key={user._id}
-                value={user._id}
-              >{`${user.firstName} ${user.lastName}`}</option>
-            ))}
-        </select>
+      {/* <p>{JSON.stringify(filter)}</p> */}
+      <div className="flex justify-center align-middle">
+        <div className="form-control w-full max-w-xs m-2">
+          <label htmlFor="createdBy" className="label">
+            <span className="label-text">Created By: </span>
+            <span className="label-text-alt">Filter</span>
+          </label>
+          <select
+            id="createdBy"
+            name="createdBy"
+            value={filter.createdBy}
+            required
+            onChange={(e) =>
+              setFilter({ ...filter, createdBy: e.target.value })
+            }
+            className="select select-bordered w-full max-w-xs"
+          >
+            <option value="">ALL</option>
+            {data &&
+              data.users?.map((user) => (
+                <option
+                  key={user._id}
+                  value={user._id}
+                >{`${user.firstName} ${user.lastName}`}</option>
+              ))}
+          </select>
+        </div>
+        <div className="form-control w-full max-w-xs m-2">
+          <label htmlFor="assignedTo" className="label">
+            <span className="label-text">Assigned To: </span>
+            <span className="label-text-alt">Filter</span>
+          </label>
+          <select
+            id="assignedTo"
+            name="assignedTo"
+            value={filter.assignedTo}
+            required
+            onChange={(e) =>
+              setFilter({ ...filter, assignedTo: e.target.value })
+            }
+            className="select select-bordered w-full max-w-xs"
+          >
+            <option value="">ALL</option>
+            {data &&
+              data.users?.map((user) => (
+                <option
+                  key={user._id}
+                  value={user._id}
+                >{`${user.firstName} ${user.lastName}`}</option>
+              ))}
+          </select>
+        </div>
       </div>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
@@ -238,6 +252,7 @@ const Bugs = ({ userContext }) => {
                             </div>
                             <div className="grid-cols-1 m-2">
                               {bug.assignedTo ? (
+                                // TODO optimize
                                 <Avatar
                                   picture={data.users
                                     ?.filter(

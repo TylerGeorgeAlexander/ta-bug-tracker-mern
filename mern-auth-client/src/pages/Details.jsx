@@ -50,12 +50,12 @@ const Details = ({ userContext }) => {
 
   return (
     <>
-      <h2 className="text-lg font-bold">Details:</h2>
-      <span className="text-center m-4 font-bold">
-        Currently Assigned to {data.bug?.assignedTo}
-      </span>
       <div className="flex justify-center m-4">
         <div className="text-center m-2">
+          <h2 className="text-lg font-bold">Details:</h2>
+          <span className="text-center m-4 font-bold">
+            Currently Assigned to {data.bug?.assignedTo}
+          </span>
           <label htmlFor="assignedTo">
             <div className="text-center m-2">
               <span>Assign to:</span>

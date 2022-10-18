@@ -55,6 +55,7 @@ const Details = ({ userContext }) => {
           <h2 className="text-lg font-bold">Details:</h2>
           <span className="text-center m-4 font-bold">
             Currently Assigned to {data.bug?.assignedTo}
+            {/* {JSON.stringify(data.users)} */}
           </span>
           <label htmlFor="assignedTo">
             <div className="text-center m-2">
@@ -75,8 +76,8 @@ const Details = ({ userContext }) => {
             {data.users &&
               data.users.map((user) => {
                 return (
-                  <option key={user._id} value={user.firstName}>
-                    {user.firstName}
+                  <option key={user._id} value={user._id}>
+                    {`${user.firstName} ${user.lastName}`}
                   </option>
                 );
               })}

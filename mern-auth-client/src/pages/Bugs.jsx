@@ -205,15 +205,34 @@ const Bugs = ({ userContext }) => {
                           <div className="grid text-center">
                             <div className="grid-cols-1">
                               <span className="text-center font-semibold">
-                                {bug.assignedTo}
+                                {data.users
+                                  ?.filter(
+                                    (user) => user._id === bug.assignedTo
+                                  )
+                                  .map(
+                                    (user) =>
+                                      `${user.firstName} ${user.lastName}`
+                                  )}
                               </span>
                             </div>
                             <div className="grid-cols-1 m-2">
                               {bug.assignedTo ? (
                                 <Avatar
-                                  picture={bug.user.profilePicture}
-                                  firstName={bug.user.firstName}
-                                  lastName={bug.user.lastName}
+                                  picture={data.users
+                                    ?.filter(
+                                      (user) => user._id === bug.assignedTo
+                                    )
+                                    .map((user) => user.profilePicture)}
+                                  firstName={data.users
+                                    ?.filter(
+                                      (user) => user._id === bug.assignedTo
+                                    )
+                                    .map((user) => user.firstName)}
+                                  lastName={data.users
+                                    ?.filter(
+                                      (user) => user._id === bug.assignedTo
+                                    )
+                                    .map((user) => user.lastName)}
                                 />
                               ) : (
                                 <AvatarPlaceholder

@@ -91,6 +91,24 @@ const Bugs = ({ userContext }) => {
               >{`${user.firstName} ${user.lastName}`}</option>
             ))}
         </select>
+        <label htmlFor="assignedTo"> Assigned To: </label>
+        <select
+          id="assignedTo"
+          name="assignedTo"
+          value={filter.assignedTo}
+          required
+          onChange={(e) => setFilter({ ...filter, assignedTo: e.target.value })}
+          className="select select-bordered w-full max-w-xs"
+        >
+          <option value="">ALL</option>
+          {data &&
+            data.users?.map((user) => (
+              <option
+                key={user._id}
+                value={user._id}
+              >{`${user.firstName} ${user.lastName}`}</option>
+            ))}
+        </select>
       </div>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
@@ -119,6 +137,9 @@ const Bugs = ({ userContext }) => {
               data.bugs
                 ?.filter((bug) =>
                   filter.createdBy ? bug.user._id === filter.createdBy : bug
+                )
+                .filter((bug) =>
+                  filter.assignedTo ? bug.assignedTo === filter.assignedTo : bug
                 )
                 .map((bug) => {
                   return (

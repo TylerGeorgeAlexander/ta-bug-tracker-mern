@@ -73,7 +73,7 @@ const Bugs = ({ userContext }) => {
       {/* data structure stringified
       <h2>Bugs</h2> */}
       {/* <div>{JSON.stringify(data)}</div> */}
-      <p>{JSON.stringify(filter)}</p>
+      {/* <p>{JSON.stringify(filter)}</p> */}
       <div className="flex justify-center align-middle">
         {/* CREATED BY FILTER SELECT */}
         <div className="form-control w-full max-w-xs m-2">
@@ -349,7 +349,7 @@ const Bugs = ({ userContext }) => {
 
                       <td className="text-center">
                         <div className="m-2">
-                          <ResolveModal id={bug._id} resolveBug={resolveBug} />
+                          <ResolveModal id={bug._id} resolveBug={resolveBug} resolved={bug.resolved}/>
                         </div>
                         <div className="m-2">
                           {userContext.details?.rank === 1 && (

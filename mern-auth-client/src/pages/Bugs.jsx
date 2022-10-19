@@ -15,7 +15,7 @@ const Bugs = ({ userContext }) => {
     createdBy: "",
     type: "",
     priority: "",
-    resolved: false,
+    resolved: "",
   });
 
   const getData = async () => {
@@ -163,8 +163,8 @@ const Bugs = ({ userContext }) => {
             className="select select-bordered w-full max-w-xs"
           >
             <option value="">ALL</option>
-            <option value={true}>TRUE</option>
-            <option value={false}>FALSE</option>
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
           </select>
         </div>
       </div>
@@ -214,7 +214,7 @@ const Bugs = ({ userContext }) => {
                             type="checkbox"
                             className="checkbox"
                             // Checked off if Bug is resolved
-                            checked={bug.resolved}
+                            checked={(bug.resolved === "yes")}
                             readOnly
                           />
                         </label>

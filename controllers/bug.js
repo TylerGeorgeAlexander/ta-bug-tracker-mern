@@ -61,7 +61,7 @@ module.exports = {
         image: result ? result.secure_url : null,
         cloudinaryId: result ? result.public_id : null,
         priority: req.body.priority,
-        resolved: false,
+        resolved: "no",
         //openedDate is defaulted in schema
       });
       console.log("Bug has been added!");

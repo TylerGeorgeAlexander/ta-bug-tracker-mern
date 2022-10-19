@@ -214,7 +214,7 @@ const Bugs = ({ userContext }) => {
                             type="checkbox"
                             className="checkbox"
                             // Checked off if Bug is resolved
-                            checked={(bug.resolved === "yes")}
+                            checked={bug.resolved === "yes"}
                             readOnly
                           />
                         </label>
@@ -349,7 +349,11 @@ const Bugs = ({ userContext }) => {
 
                       <td className="text-center">
                         <div className="m-2">
-                          <ResolveModal id={bug._id} resolveBug={resolveBug} resolved={bug.resolved}/>
+                          <ResolveModal
+                            id={bug._id}
+                            resolveBug={resolveBug}
+                            resolved={bug.resolved}
+                          />
                         </div>
                         <div className="m-2">
                           {userContext.details?.rank === 1 && (

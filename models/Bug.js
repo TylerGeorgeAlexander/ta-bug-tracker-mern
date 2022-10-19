@@ -35,9 +35,9 @@ const BugSchema = new mongoose.Schema({
     default: Date.now,
   },
   resolved: {
-    type: Boolean,
+    type: String,
     required: true,
-    default: false,
+    default: "no",
   },
   assignedTo: {
     type: String,

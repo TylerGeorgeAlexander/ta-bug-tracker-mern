@@ -15,7 +15,7 @@ const Bugs = ({ userContext }) => {
     createdBy: "",
     type: "",
     priority: "",
-    resolved: "",
+    resolved: false,
   });
 
   const getData = async () => {
@@ -73,7 +73,7 @@ const Bugs = ({ userContext }) => {
       {/* data structure stringified
       <h2>Bugs</h2> */}
       {/* <div>{JSON.stringify(data)}</div> */}
-      {/* <p>{JSON.stringify(filter)}</p> */}
+      <p>{JSON.stringify(filter)}</p>
       <div className="flex justify-center align-middle">
         {/* CREATED BY FILTER SELECT */}
         <div className="form-control w-full max-w-xs m-2">
@@ -151,7 +151,7 @@ const Bugs = ({ userContext }) => {
         {/* RESOLVED FILTER SELECT */}
         <div className="form-control w-full max-w-xs m-2">
           <label htmlFor="resolved" className="label">
-            <span className="label-text">Created By: </span>
+            <span className="label-text">Resolved: </span>
             <span className="label-text-alt">Filter</span>
           </label>
           <select
@@ -163,13 +163,8 @@ const Bugs = ({ userContext }) => {
             className="select select-bordered w-full max-w-xs"
           >
             <option value="">ALL</option>
-            {data &&
-              data.users?.map((user) => (
-                <option
-                  key={user._id}
-                  value={user._id}
-                >{`${user.firstName} ${user.lastName}`}</option>
-              ))}
+            <option value={true}>TRUE</option>
+            <option value={false}>FALSE</option>
           </select>
         </div>
       </div>
@@ -205,8 +200,11 @@ const Bugs = ({ userContext }) => {
                   filter.assignedTo ? bug.assignedTo === filter.assignedTo : bug
                 )
                 .filter((bug) =>
-                filter.priority ? bug.priority === filter.priority : bug
-              )
+                  filter.priority ? bug.priority === filter.priority : bug
+                )
+                .filter((bug) =>
+                  filter.resolved ? bug.resolved === filter.resolved : bug
+                )
                 .map((bug) => {
                   return (
                     <tr key={`${bug._id} tr`} className="hover">

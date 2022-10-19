@@ -88,10 +88,15 @@ module.exports = {
     }
   },
   resolveBug: async (req, res) => {
+    const bug = await Bug.findById(req.params.id);
     try {
-      await Bug.findOneAndUpdate({ _id: req.params.id }, [
-        { $set: { resolved: { $not: "$resolved" } } },
-      ]);
+      bug.resolved === "no"
+        ? await Bug.findOneAndUpdate({ _id: req.params.id }, [
+            { $set: { resolved: "yes" } },
+          ])
+        : await Bug.findOneAndUpdate({ _id: req.params.id }, [
+            { $set: { resolved: "no" } },
+          ]);
       console.log("Bug resolved status has been changed!");
       res.status(200).send("Bug resolved status has been changed!");
     } catch (err) {

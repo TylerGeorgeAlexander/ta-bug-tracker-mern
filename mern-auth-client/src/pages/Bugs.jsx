@@ -186,6 +186,7 @@ const Bugs = ({ userContext }) => {
               <th className="text-center">Assigned To</th>
               <th></th>
               <th></th>
+              {userContext.details?.rank === 1 && <th></th>}
             </tr>
           </thead>
           {/* tbody begin */}
@@ -276,11 +277,12 @@ const Bugs = ({ userContext }) => {
                                 />
                               )}
                             </div>
-                            <div className="grid-cols-1">
+                            {/* <div className="grid-cols-1">
                               <span className="badge badge-ghost badge-sm">
+                                TODO add roles to users schema
                                 {bug.user?.role || "Software Engineer I"}
                               </span>
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </td>
@@ -337,29 +339,33 @@ const Bugs = ({ userContext }) => {
                           </div>
                         </div>
                       </td>
+                      {/* REASSIGN RANKED FOR HIGHER THAN REGULAR USER */}
+                      {userContext.details?.rank < 3 && (
+                        <td className="text-center">
+                          <Link
+                            to={`/reassign/${bug._id}`}
+                            className="btn btn-ghost btn-xs"
+                          >
+                            Reassign
+                          </Link>
+                        </td>
+                      )}
 
                       <td className="text-center">
-                        <Link
-                          to={`/details/${bug._id}`}
-                          className="btn btn-ghost btn-xs"
-                        >
-                          details
-                        </Link>
-                      </td>
-
-                      <td className="text-center">
-                        <div className="m-2">
+                        <div className="m-1">
                           <ResolveModal
                             id={bug._id}
                             resolveBug={resolveBug}
                             resolved={bug.resolved}
                           />
                         </div>
-                        <div className="m-2">
-                          {userContext.details?.rank === 1 && (
+                      </td>
+                      <td className="text-center">
+                        {userContext.details?.rank === 1 && (
+                          <div className="m-1">
                             <DeleteModal id={bug._id} deleteBug={deleteBug} />
-                          )}
-                        </div>
+                          </div>
+                        )}
                       </td>
                     </tr>
                   );
@@ -378,6 +384,7 @@ const Bugs = ({ userContext }) => {
               <th className="text-center">Assigned To</th>
               <th></th>
               <th></th>
+              {userContext.details?.rank === 1 && <th></th>}
             </tr>
           </tfoot>
         </table>

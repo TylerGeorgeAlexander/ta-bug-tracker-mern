@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Details = ({ userContext }) => {
+const Reassign = ({ userContext }) => {
   let { bugId } = useParams();
+  const navigate = useNavigate();
 
   const [data, setData] = useState([]);
   const [bodyData, setBodyData] = useState({ assignedTo: "" });
@@ -41,8 +42,12 @@ const Details = ({ userContext }) => {
     };
 
     try {
-      const response = await axios.put(UPLOAD_ENDPOINT, bodyData, config);
-      console.log(response);
+      return await axios
+        .put(UPLOAD_ENDPOINT, bodyData, config)
+        .then(function (response) {
+          console.log(response);
+          navigate("/bugs");
+        });
     } catch (error) {
       console.error(error);
     }
@@ -52,7 +57,7 @@ const Details = ({ userContext }) => {
     <>
       <div className="flex justify-center m-4">
         <div className="text-center m-2">
-          <h2 className="text-lg font-bold">Details:</h2>
+          <h2 className="text-lg font-bold">Reassign:</h2>
           <span className="text-center m-4 font-bold">
             Currently Assigned to {data.bug?.assignedTo}
             {/* {JSON.stringify(data.users)} */}
@@ -95,4 +100,4 @@ const Details = ({ userContext }) => {
   );
 };
 
-export default Details;
+export default Reassign;

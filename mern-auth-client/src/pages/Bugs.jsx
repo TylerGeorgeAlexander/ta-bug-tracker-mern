@@ -68,6 +68,24 @@ const Bugs = ({ userContext }) => {
     });
   };
 
+  // Edit Priority Function
+  const editPriorityBug = async (id, priority) => {
+    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editPriority/${id}`;
+
+    return await axios({
+      method: "put",
+      url: UPLOAD_ENDPOINT,
+      data: { priority },
+    })
+      .then(function (response) {
+        console.log(response);
+        getData();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       {/* data structure stringified
@@ -225,8 +243,8 @@ const Bugs = ({ userContext }) => {
                         <div className="flex items-center space-x-3 whitespace-normal">
                           <div>
                             <div className="font-bold">{bug.name}</div>
-                            <div className="text-sm opacity-50 text-center w-[10rem]">
-                              {bug.app || "Default Application"}
+                            <div className="text-sm opacity-50 text-start w-[10rem]">
+                              {bug.app || "bugTracker"}
                             </div>
                           </div>
                         </div>
@@ -234,12 +252,18 @@ const Bugs = ({ userContext }) => {
                       {/* DESCRIPTION */}
                       <td>
                         <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
-                          <p className="truncate w-[15rem] whitespace-normal">{bug.description}</p>
+                          <p className="truncate w-[15rem] whitespace-normal">
+                            {bug.description}
+                          </p>
                         </div>
                       </td>
                       {/* PRIORITY */}
                       <td className="text-center">
-                        <PriorityPill priority={bug.priority} />
+                        <PriorityPill
+                          priority={bug.priority}
+                          bugId={bug._id}
+                          editPriorityBug={editPriorityBug}
+                        />
                       </td>
                       {/* ATTACHMENTS */}
                       <td>

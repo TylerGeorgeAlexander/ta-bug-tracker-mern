@@ -41,15 +41,15 @@ const Bugs = ({ userContext }) => {
   );
 
   // Delete Function
-  const deleteBug = (id) => {
+  const deleteBug = async (id) => {
     const UPLOAD_ENDPOINT = `http://localhost:8081/bug/deleteBug/${id}`;
 
     return axios
       .delete(UPLOAD_ENDPOINT)
       .then(function (response) {
         console.log(response);
+        getData();
       })
-      .then(getData())
       .catch(function (error) {
         console.log(error);
       });

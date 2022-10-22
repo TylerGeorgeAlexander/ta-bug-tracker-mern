@@ -62,7 +62,7 @@ const Login = () => {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: email, password }),
+      body: JSON.stringify({ username: email.toLowerCase(), password }),
     })
       .then(async (response) => {
         setIsSubmitting(false);

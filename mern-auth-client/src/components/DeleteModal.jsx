@@ -5,14 +5,14 @@ const Modal = ({ deleteBug, id }) => {
     <>
       {/* <!-- The button to open modal --> */}
       <label
-        htmlFor={`modal-${id}`}
+        htmlFor={`delete-modal-${id}`}
         className="btn modal-button btn-warning hover:btn-error"
       >
         delete
       </label>
 
       {/* <!-- Put this part before </body> tag --> */}
-      <input type="checkbox" id={`modal-${id}`} className="modal-toggle" />
+      <input type="checkbox" id={`delete-modal-${id}`} className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg flex justify-center">
@@ -22,16 +22,16 @@ const Modal = ({ deleteBug, id }) => {
             This is a hard delete. The information will be lost forever.
           </p>
           <div className="modal-action flex justify-center">
-            <label htmlFor={`modal-${id}`} className="btn hover:btn-primary">
+            <label htmlFor={`delete-modal-${id}`} className="btn hover:btn-primary">
               Cancel
             </label>
           </div>
           <div className="modal-action flex justify-center">
-            {/* <label htmlFor={`modal-${id}`} className="btn">
+            {/* <label htmlFor={`delete-modal-${id}`} className="btn">
               DELETE
             </label> */}
             <label
-              htmlFor={`modal-${id}`}
+              htmlFor={`delete-modal-${id}`}
               onClick={() => deleteBug(id)}
               className="btn btn-warning hover:btn-error"
             >

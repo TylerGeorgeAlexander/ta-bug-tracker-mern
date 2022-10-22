@@ -233,7 +233,7 @@ const Bugs = ({ userContext }) => {
                       </td>
                       {/* DESCRIPTION */}
                       <td>
-                        <div className="flex items-center space-x-3 whitespace-normal justify-center">
+                        <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
                           {bug.description}
                         </div>
                       </td>

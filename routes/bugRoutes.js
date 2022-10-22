@@ -21,6 +21,9 @@ router.put("/resolveBug/:id", bugController.resolveBug);
 
 router.put("/assignBug/:bugId", bugController.assignBug);
 
+// const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editPriority/${id}`;
+router.put("/editPriority/:bugId", bugController.editPriorityBug);
+
 router.delete("/deleteBug/:id", bugController.deleteBug);
 
 module.exports = router;

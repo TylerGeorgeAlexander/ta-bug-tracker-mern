@@ -35,7 +35,6 @@ const ProfileForm = ({ userContext }) => {
       });
   };
 
-
   return (
     <>
       <h2 className="text-lg text-center">Edit Profile Form</h2>
@@ -50,7 +49,10 @@ const ProfileForm = ({ userContext }) => {
               type="text"
               value={bodyData.username}
               onChange={(e) =>
-                setBodyData({ ...bodyData, username: e.target.value })
+                setBodyData({
+                  ...bodyData,
+                  username: e.target.value.toLowerCase(),
+                })
               }
               placeholder={userContext.details?.username}
               className="input input-bordered w-full max-w-xs m-2"

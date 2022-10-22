@@ -196,8 +196,8 @@ const Bugs = ({ userContext }) => {
                   <input type="checkbox" className="checkbox" />
                 </label>
               </th>
-              <th className="text-center">Bug Name</th>
-              <th className="text-center">Description</th>
+              <th className="text-start">Bug Name</th>
+              <th className="text-start">Description</th>
               <th className="text-center">Priority</th>
               <th className="text-center">Attachments</th>
               <th className="text-center">Created By</th>
@@ -242,8 +242,8 @@ const Bugs = ({ userContext }) => {
                       <td>
                         <div className="flex items-center space-x-3 whitespace-normal">
                           <div>
-                            <div className="font-bold">{bug.name}</div>
-                            <div className="text-sm opacity-50 text-start w-[10rem]">
+                            <div className="font-bold truncate w-[10rem] whitespace-normal">{bug.name}</div>
+                            <div className="text-sm opacity-50 text-start mt-2">
                               {bug.app || "bugTracker"}
                             </div>
                           </div>
@@ -252,7 +252,7 @@ const Bugs = ({ userContext }) => {
                       {/* DESCRIPTION */}
                       <td>
                         <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
-                          <p className="truncate w-[15rem] whitespace-normal">
+                          <p className="truncate w-[10rem] whitespace-normal">
                             {bug.description}
                           </p>
                         </div>
@@ -400,8 +400,8 @@ const Bugs = ({ userContext }) => {
           <tfoot>
             <tr>
               <th></th>
-              <th className="text-center">Bug Name</th>
-              <th className="text-center">Description</th>
+              <th className="text-start">Bug Name</th>
+              <th className="text-start">Description</th>
               <th className="text-center">Priority</th>
               <th className="text-center">Attachments</th>
               <th className="text-center">Created By</th>

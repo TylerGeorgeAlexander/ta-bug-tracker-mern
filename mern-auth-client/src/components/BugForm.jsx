@@ -110,7 +110,7 @@ const BugForm = ({ userContext }) => {
           </label>
         </div>
         <div className="flex justify-center m-4">
-          <input
+          <textarea
             id="desc"
             name="desc"
             type="text"
@@ -119,7 +119,7 @@ const BugForm = ({ userContext }) => {
             onChange={(e) =>
               setBodyData({ ...bodyData, description: e.target.value })
             }
-            className="input input-bordered w-full max-w-xs"
+            className="textarea textarea-bordered w-full max-w-xs h-[7rem]"
           />
         </div>
         <div className="flex justify-center m-4">

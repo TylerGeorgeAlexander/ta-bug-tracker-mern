@@ -225,7 +225,7 @@ const Bugs = ({ userContext }) => {
                         <div className="flex items-center space-x-3 whitespace-normal">
                           <div>
                             <div className="font-bold">{bug.name}</div>
-                            <div className="text-sm opacity-50 text-center">
+                            <div className="text-sm opacity-50 text-center w-[10rem]">
                               {bug.app || "Default Application"}
                             </div>
                           </div>
@@ -234,7 +234,7 @@ const Bugs = ({ userContext }) => {
                       {/* DESCRIPTION */}
                       <td>
                         <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
-                          {bug.description}
+                          <p className="truncate w-[15rem] whitespace-normal">{bug.description}</p>
                         </div>
                       </td>
                       {/* PRIORITY */}

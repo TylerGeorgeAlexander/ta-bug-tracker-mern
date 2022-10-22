@@ -6,14 +6,14 @@ const Modal = ({ resolveBug, id, resolved }) => {
       {/* <!-- The button to open modal --> */}
       {resolved === "no" ? (
         <label
-          htmlFor={`modal-${id}`}
+          htmlFor={`resolve-modal-${id}`}
           className="btn modal-button btn-primary hover:btn-primary-focus"
         >
           resolve
         </label>
       ) : (
         <label
-          htmlFor={`modal-${id}`}
+          htmlFor={`resolve-modal-${id}`}
           className="btn modal-button btn-secondary hover:btn-secondary-focus"
         >
           open
@@ -23,7 +23,7 @@ const Modal = ({ resolveBug, id, resolved }) => {
       {/* <!-- Put this part before </body> tag --> */}
       {resolved === "no" ? (
         <div>
-          <input type="checkbox" id={`modal-${id}`} className="modal-toggle" />
+          <input type="checkbox" id={`resolve-modal-${id}`} className="modal-toggle" />
           <div className="modal modal-bottom sm:modal-middle">
             <div className="modal-box">
               <h3 className="font-bold text-lg flex justify-center">
@@ -34,18 +34,18 @@ const Modal = ({ resolveBug, id, resolved }) => {
               </p>
               <div className="modal-action flex justify-center">
                 <label
-                  htmlFor={`modal-${id}`}
+                  htmlFor={`resolve-modal-${id}`}
                   className="btn hover:btn-primary"
                 >
                   Cancel
                 </label>
               </div>
               <div className="modal-action flex justify-center">
-                {/* <label htmlFor={`modal-${id}`} className="btn">
+                {/* <label htmlFor={`resolve-modal-${id}`} className="btn">
               DELETE
             </label> */}
                 <label
-                  htmlFor={`modal-${id}`}
+                  htmlFor={`resolve-modal-${id}`}
                   onClick={() => resolveBug(id)}
                   className="btn btn-primary hover:btn-success"
                 >
@@ -57,7 +57,7 @@ const Modal = ({ resolveBug, id, resolved }) => {
         </div>
       ) : (
         <div>
-          <input type="checkbox" id={`modal-${id}`} className="modal-toggle" />
+          <input type="checkbox" id={`resolve-modal-${id}`} className="modal-toggle" />
           <div className="modal modal-bottom sm:modal-middle">
             <div className="modal-box">
               <h3 className="font-bold text-lg flex justify-center">
@@ -69,18 +69,18 @@ const Modal = ({ resolveBug, id, resolved }) => {
               </p>
               <div className="modal-action flex justify-center">
                 <label
-                  htmlFor={`modal-${id}`}
+                  htmlFor={`resolve-modal-${id}`}
                   className="btn hover:btn-secondary"
                 >
                   Cancel
                 </label>
               </div>
               <div className="modal-action flex justify-center">
-                {/* <label htmlFor={`modal-${id}`} className="btn">
+                {/* <label htmlFor={`resolve-modal-${id}`} className="btn">
               DELETE
             </label> */}
                 <label
-                  htmlFor={`modal-${id}`}
+                  htmlFor={`resolve-modal-${id}`}
                   onClick={() => resolveBug(id)}
                   className="btn btn-secondary hover:btn-secondary-focus"
                 >

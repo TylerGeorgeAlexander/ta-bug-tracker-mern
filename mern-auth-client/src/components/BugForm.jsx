@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 
 const BugForm = ({ userContext }) => {
+  const navigate = useNavigate();
   const [bodyData, setBodyData] = useState({
     name: "",
     description: "",
@@ -10,24 +12,7 @@ const BugForm = ({ userContext }) => {
   });
 
   const [error, setError] = useState("");
-
-  // const [name, setName] = useState("");
-  // const [desc, setDesc] = useState("");
-  // const [priority, setPriority] = useState("");
   const [filePath, setFilePath] = useState("");
-
-  // const clickTest = (e) => {
-  //   // setBodyData({
-  //   //   ...bodyData,
-  //   //   id: userContext.details._id,
-  //   //   name,
-  //   //   description: desc,
-  //   //   priority,
-  //   // });
-  //   // setBodyData( { id: userContext.details._id });
-  //   console.log("file path: ", filePath);
-  //   return console.log(JSON.stringify(bodyData));
-  // };
 
   const submitForm = async (e) => {
     const UPLOAD_ENDPOINT = "http://localhost:8081/bug/createBug";
@@ -67,6 +52,7 @@ const BugForm = ({ userContext }) => {
       .then(function (response) {
         //handle success
         console.log(response);
+        navigate('/bugs')
       })
       .catch(function (response) {
         //handle error

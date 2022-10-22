@@ -103,6 +103,20 @@ module.exports = {
       console.log(err);
     }
   },
+  editPriorityBug: async (req, res) => {
+    // const bug = await Bug.findById(req.params.bugId);
+    console.log(JSON.stringify(req.body));
+    console.log(req.params.bugId);
+    try {
+      await Bug.findOneAndUpdate({ _id: req.params.bugId }, [
+        { $set: { priority: req.body.priority } },
+      ]);
+      console.log("Bug priority status has been changed!");
+      res.status(200).send("Bug priority status has been changed!");
+    } catch (err) {
+      console.log(err);
+    }
+  },
   assignBug: async (req, res) => {
     console.log("assignBug controller", req.body);
     try {

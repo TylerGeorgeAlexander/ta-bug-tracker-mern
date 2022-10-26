@@ -104,7 +104,7 @@ const Navbar = () => {
       <nav className="m-4">
         <div className="navbar bg-base-100 shadow-lg rounded-lg">
           <div className="flex-1">
-            <Link className="btn btn-ghost normal-case text-xl m-2" to="/test">
+            <Link className="btn btn-ghost normal-case text-xl m-2" to="/bugs">
               {bugIcon} <span className="m-2">bugTracker</span>
             </Link>
             <div className="text-sm breadcrumbs">

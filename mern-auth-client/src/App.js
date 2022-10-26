@@ -8,7 +8,7 @@ import Welcome from "./components/Welcome";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
-import Test from "./pages/Test";
+// import Test from "./pages/Test";
 import Bugs from "./pages/Bugs";
 import BugForm from "./components/BugForm";
 import Profile from "./pages/Profile";
@@ -77,7 +77,8 @@ function App() {
           <Route index element={<Welcome />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
-          <Route exact path="/test" element={<Test />} />
+          {/* TODO Clean Up */}
+          {/* <Route exact path="/test" element={<Test />} /> */}
           <Route
             exact
             path="/Bugs"

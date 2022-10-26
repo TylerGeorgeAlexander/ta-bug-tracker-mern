@@ -105,7 +105,7 @@ const Navbar = () => {
         <div className="navbar bg-base-100 shadow-lg rounded-lg">
           <div className="flex-1">
             <Link className="btn btn-ghost normal-case text-xl m-2" to="/test">
-            {bugIcon} <span className="m-2">bugTracker</span> 
+              {bugIcon} <span className="m-2">bugTracker</span>
             </Link>
             <div className="text-sm breadcrumbs">
               <ul>
@@ -122,13 +122,14 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex-none gap-2">
-            <div className="form-control">
+            {/* TODO Add Feature: Search */}
+            {/* <div className="form-control">
               <input
                 type="text"
                 placeholder="Search"
                 className="input input-bordered"
               />
-            </div>
+            </div> */}
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-12 rounded-full">

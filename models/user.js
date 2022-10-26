@@ -28,6 +28,7 @@ const User = new Schema({
   },
   profilePicture: {
     type: String,
+    default: "",
   },
   cloudinaryId: {
     type: String,

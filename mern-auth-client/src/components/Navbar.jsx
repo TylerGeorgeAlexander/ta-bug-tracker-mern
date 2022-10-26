@@ -160,9 +160,10 @@ const Navbar = () => {
                     <span className="badge">New</span>
                   </Link>
                 </li>
-                <li>
+                {/* TODO: Add Feature */}
+                {/* <li>
                   <Link to="/settings">Settings</Link>
-                </li>
+                </li> */}
                 <li>
                   <button
                     // className="btn"

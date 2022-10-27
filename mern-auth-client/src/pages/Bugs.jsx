@@ -7,6 +7,8 @@ import AvatarPlaceholder from "../components/AvatarPlaceholder";
 import Avatar from "../components/Avatar";
 import ResolveModal from "../components/ResolveModal";
 import PriorityPill from "../components/PriorityPill";
+import EditBugName from "../components/EditBugName";
+import EditDescription from "../components/EditDescription";
 
 const Bugs = ({ userContext }) => {
   const [data, setData] = useState([]);
@@ -39,6 +41,24 @@ const Bugs = ({ userContext }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
+
+  // Edit Description Function
+  const editDescriptionBug = async (id, description) => {
+    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editDescription/${id}`;
+
+    return await axios({
+      method: "put",
+      url: UPLOAD_ENDPOINT,
+      data: { description },
+    })
+      .then(function (response) {
+        console.log(response);
+        getData();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   // Delete Function
   const deleteBug = async (id) => {
@@ -242,7 +262,9 @@ const Bugs = ({ userContext }) => {
                       <td>
                         <div className="flex items-center space-x-3 whitespace-normal">
                           <div>
-                            <div className="font-bold truncate w-[10rem] whitespace-normal">{bug.name}</div>
+                            <div className="font-bold truncate w-[10rem] whitespace-normal">
+                              {bug.name}
+                            </div>
                             <div className="text-sm opacity-50 text-start mt-2">
                               {bug.app || "bugTracker"}
                             </div>
@@ -251,11 +273,16 @@ const Bugs = ({ userContext }) => {
                       </td>
                       {/* DESCRIPTION */}
                       <td>
-                        <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
+                        {/* <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
                           <p className="truncate w-[10rem] whitespace-normal">
                             {bug.description}
                           </p>
-                        </div>
+                        </div> */}
+                        <EditDescription
+                          bugId={bug._id}
+                          description={bug.description}
+                          editDescriptionBug={editDescriptionBug}
+                        />
                       </td>
                       {/* PRIORITY */}
                       <td className="text-center">

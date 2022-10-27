@@ -4,8 +4,9 @@ import { UserContext } from "./context/UserContext";
 import Loader from "./components/Loader";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Welcome from "./components/Welcome";
+// import Welcome from "./components/Welcome";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 // import Test from "./pages/Test";
@@ -74,7 +75,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Welcome />} />
+          <Route index element={<Index />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           {/* TODO Clean Up */}

@@ -57,14 +57,14 @@ const Reassign = ({ userContext }) => {
     <>
       <div className="flex justify-center m-4">
         <div className="text-center m-2">
-          <h2 className="text-lg font-bold">Reassign:</h2>
+          {/* <h2 className="text-lg font-bold">Reassign:</h2> */}
           <span className="text-center m-4 font-bold">
-            Currently Assigned to {data.bug?.assignedTo}
+            {/* Currently Assigned to {data.bug?.assignedTo} */}
             {/* {JSON.stringify(data.users)} */}
           </span>
           <label htmlFor="assignedTo">
             <div className="text-center m-2">
-              <span>Assign to:</span>
+              <span>Reassign to:</span>
             </div>
           </label>
           <select
@@ -77,7 +77,7 @@ const Reassign = ({ userContext }) => {
             }
             className="select select-bordered w-full max-w-xs m-2"
           >
-            <option defaultValue={null}>Assign to:</option>
+            <option defaultValue={null}>Reassign to:</option>
             {data.users &&
               data.users.map((user) => {
                 return (

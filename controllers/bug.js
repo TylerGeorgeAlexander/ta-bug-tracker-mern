@@ -117,6 +117,21 @@ module.exports = {
       console.log(err);
     }
   },
+  // editDescriptionBug
+  editDescriptionBug: async (req, res) => {
+    // const bug = await Bug.findById(req.params.bugId);
+    console.log(JSON.stringify(req.body));
+    console.log(req.params.bugId);
+    try {
+      await Bug.findOneAndUpdate({ _id: req.params.bugId }, [
+        { $set: { description: req.body.description } },
+      ]);
+      console.log("Bug description status has been changed!");
+      res.status(200).send("Bug description status has been changed!");
+    } catch (err) {
+      console.log(err);
+    }
+  },
   assignBug: async (req, res) => {
     console.log("assignBug controller", req.body);
     try {

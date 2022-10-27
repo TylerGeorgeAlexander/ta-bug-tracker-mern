@@ -26,6 +26,8 @@ router.put("/editPriority/:bugId", bugController.editPriorityBug);
 
 router.put("/editDescription/:bugId", bugController.editDescriptionBug);
 
+router.put("/editBugName/:bugId", bugController.editBugName);
+
 router.delete("/deleteBug/:id", bugController.deleteBug);
 
 module.exports = router;

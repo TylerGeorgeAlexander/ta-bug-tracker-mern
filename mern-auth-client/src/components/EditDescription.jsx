@@ -9,7 +9,7 @@ const EditDescription = ({ bugId, description, editDescriptionBug }) => {
         htmlFor={`edit-description-modal-${bugId}`}
         className={`cursor-pointer`}
       >
-        <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
+        <div className="flex items-center space-x-3 whitespace-normal justify-start">
           <p className="truncate w-[10rem] whitespace-normal">{description}</p>
         </div>
       </label>
@@ -24,30 +24,33 @@ const EditDescription = ({ bugId, description, editDescriptionBug }) => {
           <h3 className="font-bold text-lg flex justify-center">
             Are you sure you want to edit?
           </h3>
-          <p className="py-4 flex justify-center">What's the rush?</p>
 
           {/* DROPDOWN MENU */}
           <div className="flex justify-center m-4">
-            <label htmlFor="description" className="label-text text-lg">
+            <label
+              htmlFor="description"
+              className="label-text text-lg text-center"
+            >
               Current description:{" "}
               <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
-                <p className="truncate w-[10rem] whitespace-normal">
+                <p className="truncate w-[10rem] whitespace-normal font-semibold">
                   {description}
                 </p>
               </div>
             </label>
           </div>
           <div className="flex justify-center m-4">
-            <input
+            <textarea
               id="description"
               name="description"
               value={data.description}
               required
+              placeholder={description}
               onChange={(e) =>
                 setData({ ...data, description: e.target.value })
               }
-              className="textarea textarea-bordered w-full max-w-xs"
-            />
+              className="textarea textarea-bordered w-full max-w-xs h-[7rem]"
+            ></textarea>
           </div>
 
           <div className="modal-action flex justify-center">

@@ -42,6 +42,24 @@ const Bugs = ({ userContext }) => {
     []
   );
 
+  // Edit bugName Function
+  const editBugName = async (id, name) => {
+    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editBugName/${id}`;
+
+    return await axios({
+      method: "put",
+      url: UPLOAD_ENDPOINT,
+      data: { name },
+    })
+      .then(function (response) {
+        console.log(response);
+        getData();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   // Edit Description Function
   const editDescriptionBug = async (id, description) => {
     const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editDescription/${id}`;
@@ -260,7 +278,8 @@ const Bugs = ({ userContext }) => {
                       </th>
                       {/* BUGS NAME */}
                       <td>
-                        <div className="flex items-center space-x-3 whitespace-normal">
+                        {/* TODO clean up */}
+                        {/* <div className="flex items-center space-x-3 whitespace-normal">
                           <div>
                             <div className="font-bold truncate w-[10rem] whitespace-normal">
                               {bug.name}
@@ -269,10 +288,16 @@ const Bugs = ({ userContext }) => {
                               {bug.app || "bugTracker"}
                             </div>
                           </div>
-                        </div>
+                        </div> */}
+                        <EditBugName
+                          bugId={bug._id}
+                          bugName={bug.name}
+                          editBugName={editBugName}
+                        />
                       </td>
                       {/* DESCRIPTION */}
                       <td>
+                        {/* TODO clean up */}
                         {/* <div className="flex items-center space-x-3 whitespace-normal justify-start m-4">
                           <p className="truncate w-[10rem] whitespace-normal">
                             {bug.description}

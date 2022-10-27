@@ -21,7 +21,7 @@ const Index = () => {
                   application.
                 </p>
                 <Link to="bugs" className="btn btn-primary">
-                  Current Issues
+                  Go to Current Issues
                 </Link>
               </div>
             </div>

@@ -34,6 +34,7 @@ const User = new Schema({
     type: String,
   },
   // User Hierarchical Rank
+  
   /*
     1 = Admin
     2 = Boss / Advanced Access

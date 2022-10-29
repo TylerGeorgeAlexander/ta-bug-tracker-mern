@@ -6,10 +6,13 @@ const passport = require("passport");
 const session = require("express-session");
 var MongoDBStore = require("connect-mongodb-session")(session);
 
-if (process.env.NODE_ENV !== "production") {
-  // Load environment variables from .env file in non prod environments
-  require("dotenv").config();
-}
+require("dotenv").config();
+
+// if (process.env.NODE_ENV !== "production") {
+//   // Load environment variables from .env file in non prod environments
+//   require("dotenv").config();
+// }
+
 require("./utils/connectdb");
 
 require("./strategies/JwtStrategy");

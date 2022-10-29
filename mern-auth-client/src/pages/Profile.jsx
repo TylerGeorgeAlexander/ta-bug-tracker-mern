@@ -4,7 +4,7 @@ import ProfileForm from "../components/ProfileForm";
 
 const Profile = ({ userContext }) => {
   const savePicture = async (e) => {
-    const UPLOAD_ENDPOINT = "http://localhost:8081/users/profilePicture";
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/users/profilePicture`
 
     var formData = new FormData();
     e.preventDefault();

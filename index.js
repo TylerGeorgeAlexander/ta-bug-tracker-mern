@@ -74,7 +74,7 @@ app.get("/", function (req, res) {
 
 //Start the server in port 8081
 
-const server = app.listen(process.env.PORT || 8081, function () {
+const server = app.listen(process.env.PORT || 8080, function () {
   const port = server.address().port;
 
   console.log("App started at port:", port);

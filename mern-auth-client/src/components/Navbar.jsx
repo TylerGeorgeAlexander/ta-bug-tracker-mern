@@ -26,7 +26,7 @@ const Navbar = () => {
   const [userContext, setUserContext] = useContext(UserContext);
 
   const fetchUserDetails = useCallback(() => {
-    fetch(process.env.REACT_APP_API_ENDPOINT + "users/me", {
+    fetch(process.env.REACT_APP_API_ENDPOINT + "/users/me", {
       method: "GET",
       credentials: "include",
       // Pass authentication token as bearer token in header
@@ -63,7 +63,7 @@ const Navbar = () => {
   }, [userContext.details, fetchUserDetails]);
 
   const logoutHandler = () => {
-    fetch(process.env.REACT_APP_API_ENDPOINT + "users/logout", {
+    fetch(process.env.REACT_APP_API_ENDPOINT + "/users/logout", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

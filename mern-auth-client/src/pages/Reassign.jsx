@@ -10,7 +10,8 @@ const Reassign = ({ userContext }) => {
   const [bodyData, setBodyData] = useState({ assignedTo: "" });
 
   const getData = async () => {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/getBug/${bugId}`;
+    const UPLOAD_ENDPOINT =
+      process.env.REACT_APP_API_ENDPOINT + `/bug/getBug/${bugId}`;
 
     const config = {
       headers: {
@@ -32,7 +33,7 @@ const Reassign = ({ userContext }) => {
   );
 
   async function assignTo() {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/assignBug/${bugId}`;
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/assignBug/${bugId}`
 
     const config = {
       headers: {

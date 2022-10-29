@@ -12,7 +12,7 @@ const ProfileForm = ({ userContext }) => {
   });
 
   const editProfile = async (e) => {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/users/editProfile/${id}`;
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/users/editProfile/${id}`
 
     e.preventDefault();
     console.log(e);

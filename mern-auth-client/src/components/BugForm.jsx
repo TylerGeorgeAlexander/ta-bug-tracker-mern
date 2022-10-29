@@ -15,7 +15,7 @@ const BugForm = ({ userContext }) => {
   const [filePath, setFilePath] = useState("");
 
   const submitForm = async (e) => {
-    const UPLOAD_ENDPOINT = "http://localhost:8081/bug/createBug";
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/createBug`
 
     var formData = new FormData();
     e.preventDefault();

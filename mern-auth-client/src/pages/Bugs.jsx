@@ -21,7 +21,7 @@ const Bugs = ({ userContext }) => {
   });
 
   const getData = async () => {
-    const UPLOAD_ENDPOINT = "http://localhost:8081/bug/getFeed";
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/getFeed`
 
     const config = {
       headers: {
@@ -44,7 +44,7 @@ const Bugs = ({ userContext }) => {
 
   // Edit bugName Function
   const editBugName = async (id, name) => {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editBugName/${id}`;
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/editBugName/${id}`
 
     return await axios({
       method: "put",
@@ -62,7 +62,7 @@ const Bugs = ({ userContext }) => {
 
   // Edit Description Function
   const editDescriptionBug = async (id, description) => {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editDescription/${id}`;
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/editDescription/${id}`
 
     return await axios({
       method: "put",
@@ -80,7 +80,7 @@ const Bugs = ({ userContext }) => {
 
   // Delete Function
   const deleteBug = async (id) => {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/deleteBug/${id}`;
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/deleteBug/${id}`
 
     return axios
       .delete(UPLOAD_ENDPOINT)
@@ -95,7 +95,7 @@ const Bugs = ({ userContext }) => {
 
   // Resolved Function
   const resolveBug = async (id) => {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/resolveBug/${id}`;
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/resolveBug/${id}`
 
     await axios.put(UPLOAD_ENDPOINT);
     // .then(function (response) {
@@ -108,7 +108,7 @@ const Bugs = ({ userContext }) => {
 
   // Edit Priority Function
   const editPriorityBug = async (id, priority) => {
-    const UPLOAD_ENDPOINT = `http://localhost:8081/bug/editPriority/${id}`;
+    const UPLOAD_ENDPOINT = process.env.REACT_APP_API_ENDPOINT + `/bug/editPriority/${id}`
 
     return await axios({
       method: "put",

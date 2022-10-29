@@ -9,7 +9,7 @@ const Test = () => {
 
   const testFetch = () => {
     console.log("Test Fetch");
-    fetch(process.env.REACT_APP_API_ENDPOINT + "bug/getFeed", {
+    fetch(process.env.REACT_APP_API_ENDPOINT + "/bug/getFeed", {
       method: "GET",
       credentials: "include",
       headers: {

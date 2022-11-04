@@ -13,15 +13,15 @@ require("dotenv").config();
 //   require("dotenv").config();
 // }
 
-require("./utils/connectdb");
+require("../utils/connectdb");
 
-require("./strategies/JwtStrategy");
-require("./strategies/LocalStrategy");
-require("./middleware/authenticate");
+require("../strategies/JwtStrategy");
+require("../strategies/LocalStrategy");
+require("../middleware/authenticate");
 
 // ROUTERS IMPORT
-const userRouter = require("./routes/userRoutes");
-const bugRouter = require('./routes/bugRoutes')
+const userRouter = require("../routes/userRoutes");
+const bugRouter = require('../routes/bugRoutes')
 
 const app = express();
 

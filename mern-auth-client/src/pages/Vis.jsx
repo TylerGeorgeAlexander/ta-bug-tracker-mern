@@ -70,8 +70,11 @@ const Vis = ({ userContext }) => {
 
       {/* {JSON.stringify(bugData)} */}
       {/* {result} */}
-      <button onClick={getBugData}>Click</button>
-      <p>Test</p>
+      <div className="text-center m-2">
+        <button className="btn text-center" onClick={getBugData}>
+          Display Bug Priority
+        </button>
+      </div>
     </>
   );
 };

@@ -14,6 +14,7 @@ import Bugs from "./pages/Bugs";
 import BugForm from "./components/BugForm";
 import Profile from "./pages/Profile";
 import Reassign from "./pages/Reassign";
+import Vis from "./pages/Vis";
 
 function App() {
   const [currentTab, setCurrentTab] = useState("login");
@@ -99,6 +100,11 @@ function App() {
             exact
             path="/reassign/:bugId"
             element={<Reassign userContext={userContext} />}
+          />
+          <Route
+            exact
+            path="/bugs/vis"
+            element={<Vis userContext={userContext} />}
           />
           <Route path="*" element={<NoPage />} />
         </Route>

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Vis = () => {
-  return (
-    <>Vis</>
-  )
-}
+const Vis = ({ userContext }) => {
+  return <>Vis</>;
+};
 
-export default Vis
+export default Vis;

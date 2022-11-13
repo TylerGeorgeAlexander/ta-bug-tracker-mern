@@ -118,9 +118,13 @@ const Navbar = () => {
                 <li>
                   <Link to="/Bugs/add">Add Bug</Link>
                 </li>
+                <li>
+                  <Link to="/Bugs/vis">Data Visualization</Link>
+                </li>
               </ul>
             </div>
           </div>
+
           <div className="flex-none gap-2">
             {/* TODO Add Feature: Search */}
             {/* <div className="form-control">

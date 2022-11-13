@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BugGraph from "../components/BarGraph";
+import Loader from "../components/Loader";
 
 const Vis = ({ userContext }) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [bugData, setBugData] = useState([
     { priority: "low", priorityCount: 1 },
     { priority: "medium", priorityCount: 1 },
@@ -37,7 +39,7 @@ const Vis = ({ userContext }) => {
 
   useEffect(
     () => {
-      getData();
+      getData().then(() => setLoading(false));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -56,7 +58,15 @@ const Vis = ({ userContext }) => {
   };
 
   const priorityCounter = (priority) =>
-    data.bugs.filter((bug) => bug.priority === priority).length;
+    data.bugs?.filter((bug) => bug.priority === priority).length;
+
+  useEffect(
+    () => {
+      getBugData();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [loading]
+  );
 
   // Construct an array of objects
   // this is the data being passed in
@@ -66,7 +76,15 @@ const Vis = ({ userContext }) => {
 
   return (
     <>
-      <BugGraph data={bugData} xAxis={["priority"]} yAxis={["priorityCount"]} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <BugGraph
+          data={bugData}
+          xAxis={["priority"]}
+          yAxis={["priorityCount"]}
+        />
+      )}
 
       {/* {JSON.stringify(bugData)} */}
       {/* {result} */}

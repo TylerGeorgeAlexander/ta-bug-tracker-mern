@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import BugGraph from "../components/BarGraph";
 import Loader from "../components/Loader";
@@ -7,12 +8,12 @@ const Vis = ({ userContext }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [bugData, setBugData] = useState([
-    { priority: "low", priorityCount: 1 },
-    { priority: "medium", priorityCount: 1 },
-    { priority: "high", priorityCount: 1 },
+    { priority: "low", count: 1 },
+    { priority: "medium", count: 1 },
+    { priority: "high", count: 1 },
     {
       priority: "immediately",
-      priorityCount: 1,
+      count: 1,
     },
   ]);
   //   const [filter, setFilter] = useState({
@@ -47,12 +48,21 @@ const Vis = ({ userContext }) => {
 
   const getBugData = async () => {
     setBugData([
-      { priority: "low", priorityCount: priorityCounter("low") },
-      { priority: "medium", priorityCount: priorityCounter("medium") },
-      { priority: "high", priorityCount: priorityCounter("high") },
+      { priority: "low", count: priorityCounter("low"), indexValue: 0 },
+      {
+        priority: "medium",
+        count: priorityCounter("medium"),
+        indexValue: 1,
+      },
+      {
+        priority: "high",
+        count: priorityCounter("high"),
+        indexValue: 2,
+      },
       {
         priority: "immediately",
-        priorityCount: priorityCounter("immediately"),
+        count: priorityCounter("immediately"),
+        indexValue: 3,
       },
     ]);
   };
@@ -82,16 +92,19 @@ const Vis = ({ userContext }) => {
         <BugGraph
           data={bugData}
           xAxis={["priority"]}
-          yAxis={["priorityCount"]}
+          yAxis={["count"]}
+          indexValue={["indexValue"]}
+          xName={"priority"}
+          yName={"number"}
         />
       )}
 
       {/* {JSON.stringify(bugData)} */}
       {/* {result} */}
       <div className="text-center m-2">
-        <button className="btn text-center" onClick={getBugData}>
-          Display Bug Priority
-        </button>
+        <Link className="btn text-center" to="/bugs">
+          Navigate to Bugs
+        </Link>
       </div>
     </>
   );

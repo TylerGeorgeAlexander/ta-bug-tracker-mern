@@ -1,4 +1,4 @@
-# ta-bug-tracker-mern
+# bugTracker
 
 Welcome to the bugTracker full stack web application! This application is built using the following technologies:
 
@@ -43,4 +43,7 @@ npm start
 Setting up an account with MongoDB and Cloudinary will be required for the proper keys.
 
 In a web browser, navigate to http://localhost:8081 to access the bugTracker application.
-Thank you for using bugTracker! If you have any questions or encounter any issues, please feel free to contact me.
+
+Thank you for using bugTracker! 
+
+If you have any questions or encounter any issues, please feel free to contact me.

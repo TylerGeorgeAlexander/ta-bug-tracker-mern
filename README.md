@@ -47,3 +47,11 @@ In a web browser, navigate to http://localhost:8081 to access the bugTracker app
 Thank you for using bugTracker! 
 
 If you have any questions or encounter any issues, please feel free to contact me.
+
+---
+
+Also, if you need help setting up additional environment variables, such as JWT_SECRET, COOKIE_SECRET, etc. 
+
+Check out my mern-auth-server set up:
+
+[mern-auth-server READ_ME](https://github.com/TylerGeorgeAlexander/mern-auth-server)

@@ -1,57 +1,66 @@
 # bugTracker
 
-Welcome to the bugTracker full stack web application! This application is built using the following technologies:
+Welcome to the BugTracker full stack web application! This application utilizes a combination of cutting-edge technologies to help you track and manage software bugs effectively. Here's a breakdown of the key technologies used:
 
-* MongoDB: a popular, flexible, and scalable document-oriented database
-* Express: a web application framework for Node.js
-* React: a popular JavaScript library for building user interfaces
-* Node.js: a JavaScript runtime built on Chrome's V8 JavaScript engine
+- **MongoDB:** A versatile and scalable document-oriented database.
+- **Express:** A robust web application framework designed for Node.js.
+- **React:** A widely adopted JavaScript library for crafting user interfaces.
+- **Node.js:** A JavaScript runtime built on the powerful V8 engine from Google Chrome.
 
-## To get started with the BugTracker application, follow these steps:
+## Getting Started
 
-Make sure you have Node.js installed on your system.
-Also make sure you have MongoDB and Cloudinary set up for your environment variables.
+To begin using the BugTracker application, follow these straightforward steps:
 
-Install the dependencies for the application by running the following command in the root directory of the project:
+1. **Node.js Installation:** Ensure that you have Node.js installed on your system.
 
-```npm install```
+2. **Environment Setup:** Configure your environment variables with the necessary settings, including MongoDB and Cloudinary.
 
-populate your env file in the mern-auth-client:
-```REACT_APP_API_ENDPOINT = http://localhost:8081```
+3. **Install Dependencies:** In the root directory of the project, install the required dependencies by executing the following command:
 
-Then run the following command:
-```npm start```
+   ```
+   npm install
+   ```
 
-In a new terminal window, navigate to the root directory of the project and start the server by running the following command:
-populate your env file in the root folder:
-```
-PORT=8081
-JWT_SECRET=
-REFRESH_TOKEN_SECRET=
-SESSION_EXPIRY = 60 * 15
-REFRESH_TOKEN_EXPIRY = 60 * 60 * 24 * 30
-MONGO_DB_CONNECTION_STRING=
-COOKIE_SECRET=
-WHITELISTED_DOMAINS = http://localhost:3000
-CLOUD_NAME=
-API_KEY=
-API_SECRET=
+4. **Configuration for the Frontend:** Populate your environment file in the "mern-auth-client" directory with the following content:
 
-npm start
-```
+   ```
+   REACT_APP_API_ENDPOINT=http://localhost:8081
+   ```
 
-Setting up an account with MongoDB and Cloudinary will be required for the proper keys.
+5. **Start the Frontend:** Launch the frontend of the application with this command:
 
-In a web browser, navigate to http://localhost:8081 to access the bugTracker application.
+   ```
+   npm start
+   ```
 
-Thank you for using bugTracker! 
+6. **Configuration for the Backend:** In a new terminal window, navigate to the root directory of the project and set up your environment variables in the root folder. Ensure that you fill in the following fields as needed:
 
-If you have any questions or encounter any issues, please feel free to contact me.
+   ```
+   PORT=8081
+   JWT_SECRET=
+   REFRESH_TOKEN_SECRET=
+   SESSION_EXPIRY=900  # 15 minutes
+   REFRESH_TOKEN_EXPIRY=2592000  # 30 days
+   MONGO_DB_CONNECTION_STRING=
+   COOKIE_SECRET=
+   WHITELISTED_DOMAINS=http://localhost:3000
+   CLOUD_NAME=
+   API_KEY=
+   API_SECRET=
+   ```
+
+7. **Start the Backend:** Run the following command to start the server:
+
+   ```
+   npm start
+   ```
+
+8. **Database and Cloudinary Setup:** You will need to set up an account with MongoDB and Cloudinary and obtain the necessary keys for proper functionality.
+
+9. **Access the Application:** Open a web browser and go to [http://localhost:8081](http://localhost:8081) to access the BugTracker application.
+
+Thank you for choosing BugTracker! If you have any questions or encounter issues, please don't hesitate to reach out for assistance.
 
 ---
 
-Also, if you need help setting up additional environment variables, such as JWT_SECRET, COOKIE_SECRET, etc. 
-
-Check out my mern-auth-server set up:
-
-[mern-auth-server READ_ME](https://github.com/TylerGeorgeAlexander/mern-auth-server)
+For additional guidance on setting up environment variables, such as JWT_SECRET, COOKIE_SECRET, and more, check out my [mern-auth-server README](https://github.com/TylerGeorgeAlexander/mern-auth-server).

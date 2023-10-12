@@ -1,5 +1,7 @@
 # bugTracker
 
+![image](https://github.com/TylerGeorgeAlexander/ta-bug-tracker-mern/assets/67352237/b1191ddc-1cae-4d09-ba36-4e28b20c8d3a)
+
 Welcome to the BugTracker full stack web application! This application utilizes a combination of cutting-edge technologies to help you track and manage software bugs effectively. Here's a breakdown of the key technologies used:
 
 - **MongoDB:** A versatile and scalable document-oriented database.
